@@ -1308,6 +1308,7 @@
 						opts.boardFinishedFn({
 							difficultyInfo: calcBoardDifficulty(usedStrategies)
 						});
+                        
 					}
 				}
 
@@ -1773,6 +1774,25 @@
 
 
 
+        
+        /** STORAGE **/ 
+         var localStoragePrefix = "my-sudoku-";
+        /* loadSavedBoard
+         * -----------------------------------------------------------------*/
+        var loadSavedBoard = function(id){
+                var t = localStorage.getItem(localStoragePrefix+id);
+                if(t){
+                        sudoku.setBoard(JSON.parse(t));
+                }
+        }
+
+        /* saveBoard
+         * -----------------------------------------------------------------*/
+        var saveBoard = function(id){
+                localStorage.setItem(localStoragePrefix+id, JSON.stringify(board));
+        }
+        
+        
 		/**
 		* PUBLIC methods
 		* ----------------- */
