@@ -1,0 +1,109 @@
+* {
+    margin:0; padding:0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* CSS SUDOKU RESPONSIVE SUDOKUJS*/
+
+.wrap {
+    padding: 2em 1em;
+    width: 400px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media(min-width: 30em){
+    .wrap{
+        width: 490px;
+    }
+    .sudoku-board input {
+        font-size: 24px;
+        font-size: 1.5rem;
+    }
+    .sudoku-board .candidates {
+        font-size: .8em;
+    }
+}
+            
+body {
+    font-family: 'quicksandregular';
+}
+
+/* INDEX.PHP */
+/* ----time---- */
+#chronoExample {
+    text-align: center;
+    margin: 0px;
+}
+            
+#level, #timend {
+    display: none;
+}
+
+/* ----popup---- */
+            
+.modal-form {
+    background-color: #fff;
+    min-height: 30vh;
+    margin: 25vh auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /*width: 50vw;*/
+    width: 500px;
+}
+            
+.modal-form h2 {
+    text-align: center;
+    margin-top: 50px;
+}
+            
+.addvalues {
+    text-align: center;
+}
+            
+.addvalues input {
+                
+    font-size: 1rem;
+}
+            
+.addvalues #input-timend, .addvalues #input-level {
+    border: none;
+    background: transparent;
+    width: 75px;
+    margin-top: 3vh;
+}
+            
+/*.addvalues input#input-timend {
+    margin-left: 15vw;
+}*/
+            
+.addvalues .btn-validate {
+    border: 1px solid #000;
+    background: #fff;
+    padding: 10px;
+    margin-top: 30px;
+}
+            
+.addvalues .btn-validate:hover {
+    background: #000;
+    color: #fff;
+}
+            
+.modal {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-100vh);
+    margin: 0 auto;
+    font-family: 'quicksandregular';
+}
+            
+.active {
+    transform: none;
+    z-index: 1;
+}

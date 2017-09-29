@@ -5,98 +5,68 @@
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 		<link rel="stylesheet" media="all" type="text/css" href="sudokuJS.css">
 		<link rel="stylesheet" media="all" type="text/css" href="fonts/stylesheet.css">
-		<style>
-			* {
-				margin:0; padding:0;
-				-moz-box-sizing: border-box;
-				-webkit-box-sizing: border-box;
-				box-sizing: border-box;
-			}
-			.wrap {
-				padding: 2em 1em;
-				width: 400px;
-				max-width: 100%;
-				margin-left: auto;
-				margin-right: auto;
-			}
-
-			@media(min-width: 30em){
-				.wrap{
-					width: 490px;
-				}
-				.sudoku-board input {
-					font-size: 24px;
-					font-size: 1.5rem;
-				}
-				.sudoku-board .candidates {
-					font-size: .8em;
-				}
-			}
-            
-            body {
-                font-family: 'quicksandregular';
-            }
-            
-            #chronoExample {
-                text-align: center;
-                margin: 0px;
-            }
-
-		</style>
+        <link rel="stylesheet" media="all" type="text/css" href="styles.css">
 
 		<title>Sudo -ku</title>
-
-
-		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-		<script type="text/javascript" src="../sudokuJS.js"></script>
-		<script type="text/javascript" src="../easytimer.js"></script>
 	</head>
 
 	<body>
-	<div class="wrap">
-		<h1>SudokuJS demo with board generation</h1>
+	   <div class="wrap">
+            <h1>SudokuJS demo with board generation</h1>
+            
+           <!-- Chronometre -->
+            <div id="chronoExample">
+                <div class="values" id="test2">00:00:00</div>
+                <div>
+                    <button class="startButton">Start</button>
+                    <button class="pauseButton" >Pause</button>
+                    <button class="stopButton">Stop</button>
+                    <button class="resetButton">Reset</button>
+                </div>
+            </div>
 
-        <div id="chronoExample">
-            <div class="values" id="test2">00:00:00</div>
-            <div>
-                <button class="startButton">Start</button>
-                <button class="pauseButton" >Pause</button>
-                <button class="stopButton">Stop</button>
-                <button class="resetButton">Reset</button>
+            <!--show candidates toggle-->
+            <label for="toggleCandidates">Show candidates </label><input id="toggleCandidates" class="js-candidate-toggle" type="checkbox"/>
+            <!--genrate board btns-->
+            New:
+            <button type="button" class="js-generate-board-btn--easy">Easy</button>
+            <button type="button" class="js-generate-board-btn--medium">Medium</button>
+            <button type="button" class="js-generate-board-btn--hard">Hard</button>
+            <button type="button" class="js-generate-board-btn--very-hard">Very Hard</button>
+
+
+            <!--the only required html-->
+            <div id="sudoku" class="sudoku-board">
+            </div>
+
+            <!--solve buttons-->
+            Solve: <button type="button" class="js-solve-step-btn">One Step</button><button type="button" class="js-solve-all-btn">All</button>
+            <br>
+        </div>
+        
+        <!-- Form to push the values of time and level into the database if user is online -->
+        <div class="modal">
+            <div class="modal-form">
+                <h2>Félicitations, tu as terminé le sudoku !</h2>
+                <!--<form action="insertpref.php" method="post" class="addvalues">-->
+                <form class="addvalues">
+                    <div id="timend"></div>
+                    Ton temps : 
+                    <input type="text" id="input-timend" value="" disabled="" placeholder="">
+                    <div id="level"></div>
+                    <label>Le niveau du jeu : </label>
+                    <input type="text" id="input-level" value="" disabled="" placeholder=""><br>
+                    <input type="submit" class="btn-validate" value="Rejouer">
+                </form>
             </div>
         </div>
         
-		<!--show candidates toggle-->
-		<label for="toggleCandidates">Show candidates </label><input id="toggleCandidates" class="js-candidate-toggle" type="checkbox"/>
-		<!--genrate board btns-->
-		New:
-		<button type="button" class="js-generate-board-btn--easy">Easy</button>
-		<button type="button" class="js-generate-board-btn--medium">Medium</button>
-		<button type="button" class="js-generate-board-btn--hard">Hard</button>
-		<button type="button" class="js-generate-board-btn--very-hard">Very Hard</button>
-
-
-		<!--the only required html-->
-		<div id="sudoku" class="sudoku-board">
-		</div>
-
-		<!--solve buttons-->
-		Solve: <button type="button" class="js-solve-step-btn">One Step</button><button type="button" class="js-solve-all-btn">All</button>
-		<br>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="../sudokuJS.js"></script>
+		<script type="text/javascript" src="../easytimer.js"></script>
+	   <script>
         
-        
-	</div>
-        
-        <form>
-            <div id="timend"></div>
-            <input type="text" value="">
-            <div id="niveau"></div>
-            <input type="text" value="">
-            <input type="submit" value="Envoyer">
-        </form>
-        
-
-	<script>
+        // Initialisation du chronomètre
         
         var timer = new Timer();
         timer.start();
@@ -108,11 +78,6 @@
         });
         $('#chronoExample .stopButton').click(function () {
             timer.stop();
-            //console.log(timer.stop().getTotalTimeValues());
-            //console.log(timecounter);
-            var test = $(this); 
-            console.log(test);
-            console.log(test2);
         });
         $('#chronoExample .resetButton').click(function () {
             timer.reset();
@@ -127,6 +92,8 @@
             $('#chronoExample .values').html(timer.getTimeValues().toString());
         });
         
+        
+        // Initiate sudoku game
         
 		var	$candidateToggle = $(".js-candidate-toggle"),
 			$generateBoardBtnEasy = $(".js-generate-board-btn--easy"),
@@ -145,24 +112,14 @@
 					$candidateToggle.prop("checked", showing);
 				}
                 ,boardFinishedFn: function(data){
-                    var timesup = document.getElementById("test2").innerHTML;
-                    alert("Vous avez terminé votre sudoku en " + timesup);
-                    console.log(data);
-                    console.log(tt);
-                    $('#timend').text($(timesup));
+                    //var timesup = document.getElementById("test2").innerHTML;
+                    //alert("Vous avez terminé votre sudoku en " + timesup);
+                    //console.log(data);
+                    //console.log(tt);
+                    //$('#timend').text($(timesup));
+                    popUp();
                 },
 			});
-        var data = mySudokuJS.analyzeBoard();
-        console.log(data.level);
-        if(data.level){
-            console.log('pas terminé !');
-        } else {
-            console.log('terminé !');
-        }
-        
-        // STOCKER LE SUDOKU DANS UNE VARIABLE, FAIRE AVEC JSON
-        var bb = mySudokuJS.getBoard();
-        console.log(bb);
 
 		$solveStepBtn.on("click", mySudokuJS.solveStep);
 		$solveAllBtn.on("click", mySudokuJS.solveAll);
@@ -171,9 +128,6 @@
 		$generateBoardBtnEasy.on("click", function(){
 			mySudokuJS.generateBoard("easy");
             timer.reset();
-            var difficult = "facile"
-            var data = mySudokuJS.analyzeBoard();
-        console.log(data.level);
 		});
 		$generateBoardBtnMedium.on("click", function(){
 			mySudokuJS.generateBoard("medium");
@@ -197,16 +151,30 @@
 		$candidateToggle.trigger("change");
         
         
+        // STOCKER LE SUDOKU DANS UNE VARIABLE, FAIRE AVEC JSON
+        var bb = mySudokuJS.getBoard();
+        //console.log(bb);
         
-        //var popUp = function(){
-            //console.log('popup');
+        // Show popup when game is finished
+        
+        var popUp = function(){
+            // Put the finish time in the form 
+            $('#timend').text(document.getElementById("test2").innerHTML);
+            $('#input-timend').attr("placeholder", document.getElementById("test2").innerHTML);
+            $('#input-timend').attr("value", document.getElementById("test2").innerHTML);
+            // Grab the value of the finish time
             //var timesup = document.getElementById("test2").innerHTML;
-        //$('#timend').text($(timesup));
+            //console.log(timesup);
+            //$('#timend').text($(timesup));
+            
+            // Find the level of the actual sudoku and return this into the form
+            var data = mySudokuJS.analyzeBoard();
+            $('#level').text(data.level);
+            $('#input-level').attr("value", document.getElementById("level").innerHTML);
+            
+            // class form
+            $('.modal').addClass('active');
         }
 	</script>
-        
-    <script>
-        
-    </script>
 	</body>
 </html>

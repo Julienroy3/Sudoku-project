@@ -1305,10 +1305,11 @@
 
 					//callback
 					if(typeof opts.boardFinishedFn === "function"){
-						opts.boardFinishedFn({
-							difficultyInfo: calcBoardDifficulty(usedStrategies)
-						});
-                        
+						//opts.boardFinishedFn({
+						//	difficultyInfo: calcBoardDifficulty(usedStrategies)
+						//});
+                        //console.log('test');
+                        popUp();
 					}
 				}
 
@@ -1369,7 +1370,8 @@
 					//callback
 					if(typeof opts.boardFinishedFn === "function"){
 						opts.boardFinishedFn({
-							difficultyInfo: calcBoardDifficulty(usedStrategies)
+							//difficultyInfo: calcBoardDifficulty(usedStrategies)
+                            
 						});
 					}
 					//paint the last cell straight away
@@ -1774,25 +1776,6 @@
 
 
 
-        
-        /** STORAGE **/ 
-         var localStoragePrefix = "my-sudoku-";
-        /* loadSavedBoard
-         * -----------------------------------------------------------------*/
-        var loadSavedBoard = function(id){
-                var t = localStorage.getItem(localStoragePrefix+id);
-                if(t){
-                        sudoku.setBoard(JSON.parse(t));
-                }
-        }
-
-        /* saveBoard
-         * -----------------------------------------------------------------*/
-        var saveBoard = function(id){
-                localStorage.setItem(localStoragePrefix+id, JSON.stringify(board));
-        }
-        
-        
 		/**
 		* PUBLIC methods
 		* ----------------- */
