@@ -1,24 +1,61 @@
-CREATE TABLE Utilisateur(
-    IdUser INTEGER NOT NULL AUTO_INCREMENT,
-    Username VARCHAR(25),
-    MDP VARCHAR(50),
-    email VARCHAR(25),
-    icon BLOB,
-    admin tinyint,
-    PRIMARY KEY(IdUser)
-);
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
 
-CREATE TABLE Performance(
-    IdGrille INTEGER NOT NULL AUTO_INCREMENT,
-    DateResolution DATE,
-    TempsResolu Time,
-    Niveau VARCHAR(25),
-    PRIMARY KEY(IdGrille)
-);
+
+#------------------------------------------------------------
+# Table: Utilisateur
+#------------------------------------------------------------
+
+CREATE TABLE Utilisateur(
+        IdUser   int (11) Auto_increment  NOT NULL ,
+        Username Varchar (25) ,
+        MDP      Varchar (25) ,
+        email    Varchar (25) ,
+        Icon     Blob ,
+        Admin    TinyINT ,
+        IdGrille Int ,
+        PRIMARY KEY (IdUser ) ,
+        UNIQUE (Username )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Concours
+#------------------------------------------------------------
 
 CREATE TABLE Concours(
-    IdConcours INTEGER NOT NULL AUTO_INCREMENT,
-    Grille INTEGER,
-    DateConcours DateTime,
-    PRIMARY KEY(IdConcours)
-);
+        IdConcours   int (11) Auto_increment  NOT NULL ,
+        IdGrille     Int ,
+        DateConcours Datetime ,
+        PRIMARY KEY (IdConcours )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Performances
+#------------------------------------------------------------
+
+CREATE TABLE Performances(
+        IdGrille    int (11) Auto_increment  NOT NULL ,
+        DateResolu  Date ,
+        TempsResolu Time ,
+        Niveau      Varchar (25) ,
+        PRIMARY KEY (IdGrille )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Participe
+#------------------------------------------------------------
+
+CREATE TABLE Participe(
+        Classement Int ,
+        IdUser     Int NOT NULL ,
+        IdConcours Int NOT NULL ,
+        PRIMARY KEY (IdUser ,IdConcours )
+)ENGINE=InnoDB;
+
+ALTER TABLE Utilisateur ADD CONSTRAINT FK_Utilisateur_IdGrille FOREIGN KEY (IdGrille) REFERENCES Performances(IdGrille);
+ALTER TABLE Participe ADD CONSTRAINT FK_Participe_IdUser FOREIGN KEY (IdUser) REFERENCES Utilisateur(IdUser);
+ALTER TABLE Participe ADD CONSTRAINT FK_Participe_IdConcours FOREIGN KEY (IdConcours) REFERENCES Concours(IdConcours);
