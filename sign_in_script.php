@@ -21,7 +21,7 @@ if(isset($_POST["valid_in"])){
         $_SESSION["username"] = $res["username"];
         header("Location: profil.php");
     }else{
-        echo "<p style='color:red'>Une erreur est survenue ! Veuilez recommencez. <br> <a href='sign_in.php'>Retour</a></p>";
+        echo "<p class='required'>Une erreur est survenue ! Veuilez recommencez. <br> <a href='sign_in.php'>Retour</a></p>";
     }
         
 }

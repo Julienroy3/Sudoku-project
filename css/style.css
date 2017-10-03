@@ -1,0 +1,35 @@
+body{
+    font-family: calibri;
+}
+
+/*forms*/
+.connect, .form_connect, .send{
+    display: flex;
+    flex-direction: column;
+}
+.connect{
+    align-items: center;
+}
+.form_connect{
+    padding: 20px;
+    width: 320px;
+}
+.form_connect h2{
+    text-align: center;
+}
+.form_connect input{
+    margin-bottom: 10px;
+}
+.send input{
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+}
+.connect a{
+/*    text-decoration: none;*/
+    color: #000;
+}
+.required{
+    color: red;
+}
