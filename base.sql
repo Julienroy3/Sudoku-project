@@ -12,8 +12,8 @@ CREATE TABLE Utilisateur(
         Username Varchar (25) ,
         MDP      Varchar (25) ,
         email    Varchar (25) ,
-        Icon     Blob ,
-        Admin    TinyINT ,
+        Icon     Bool ,
+        Admin    Bool ,
         IdGrille Int ,
         PRIMARY KEY (IdUser ) ,
         UNIQUE (Username )
@@ -25,9 +25,8 @@ CREATE TABLE Utilisateur(
 #------------------------------------------------------------
 
 CREATE TABLE Concours(
-        IdConcours   int (11) Auto_increment  NOT NULL ,
-        IdGrille     Int ,
-        DateConcours Datetime ,
+        IdConcours int (11) Auto_increment  NOT NULL ,
+        IdGrille   Int ,
         PRIMARY KEY (IdConcours )
 )ENGINE=InnoDB;
 
@@ -37,10 +36,10 @@ CREATE TABLE Concours(
 #------------------------------------------------------------
 
 CREATE TABLE Performances(
-        IdGrille    int (11) Auto_increment  NOT NULL ,
-        DateResolu  Date ,
-        TempsResolu Time ,
-        Niveau      Varchar (25) ,
+        IdGrille       int (11) Auto_increment  NOT NULL ,
+        DateResolution Date ,
+        TempsResolu    Int ,
+        Niveau         Varchar (25) ,
         PRIMARY KEY (IdGrille )
 )ENGINE=InnoDB;
 
@@ -50,6 +49,7 @@ CREATE TABLE Performances(
 #------------------------------------------------------------
 
 CREATE TABLE Participe(
+        Temps      Time ,
         Classement Int ,
         IdUser     Int NOT NULL ,
         IdConcours Int NOT NULL ,
