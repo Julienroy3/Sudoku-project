@@ -113,8 +113,8 @@
                var easy = function() {
                    $('#btn-easy').attr("value", tabb);
                }
-               $('#btn-easy').click( function() {
-                   
+               document.getElementById("btn-easy").click( function () {
+                  $("#btn-easy").attr("value", tabb);
                });
                
                

@@ -9,14 +9,12 @@
 
 		<title>Sudo -ku</title>
 	</head>
-
+  
 	<body>
-        <?php require "menu.php"; ?>
-        
-        <div class="wrap">
+	   <div class="wrap">
             <h1>SudokuJS demo with board generation</h1>
-
-            <!-- Chronometre -->
+            
+           <!-- Chronometre -->
             <div id="chronoExample">
                 <div class="values" id="test2">00:00:00</div>
                 <div>
@@ -44,9 +42,8 @@
             <!--solve buttons-->
             Solve: <button type="button" class="js-solve-step-btn">One Step</button><button type="button" class="js-solve-all-btn">All</button>
             <br>
-
-
         </div>
+        
         <!-- Form to push the values of time and level into the database if user is online -->
         <div class="modal">
             <div class="modal-form">
@@ -55,18 +52,18 @@
                 <form class="addvalues">
                     <div id="timend"></div>
                     Ton temps : 
-                    <input type="text" id="input-timend" value="" readonly="readonly" placeholder="">
+                    <input type="text" id="input-timend" value="" disabled="" placeholder="">
                     <div id="level"></div>
                     <label>Le niveau du jeu : </label>
-                    <input type="text" id="input-level" value="" readonly="readonly" placeholder=""><br>
+                    <input type="text" id="input-level" value="" disabled="" placeholder=""><br>
                     <input type="submit" class="btn-validate" value="Rejouer">
                 </form>
             </div>
         </div>
         
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-		<script type="text/javascript" src="sudokuJS.js"></script>
-		<script type="text/javascript" src="easytimer.js"></script>
+		<script type="text/javascript" src="../sudokuJS.js"></script>
+		<script type="text/javascript" src="../easytimer.js"></script>
 	   <script>
         
         // Initialisation du chronomètre
@@ -156,7 +153,7 @@
         
         // STOCKER LE SUDOKU DANS UNE VARIABLE, FAIRE AVEC JSON
         var bb = mySudokuJS.getBoard();
-        console.log(bb);
+        //console.log(bb);
         
         // Show popup when game is finished
         
