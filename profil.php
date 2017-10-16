@@ -2,32 +2,35 @@
 
 include("connect.php");
 session_start(); 
+include('header.php');
 
-if (isset($_SESSION['id'])){
+if (isset($_SESSION['IdUser'])){
     
-    $req = $bdd->prepare("SELECT * FROM users WHERE id = :id");
-    $req->bindParam(":id", $_SESSION["id"], PDO::PARAM_INT);
+    $req = $bdd->prepare("SELECT * FROM Utilisateur WHERE IdUser = :IdUser");
+    $req->bindParam(":IdUser", $_SESSION["IdUser"], PDO::PARAM_INT);
     $req->execute();
     
 
     while ($donnees = $req->fetch()){
         
-        echo "<p>Hello ". $donnees["username"]." !</p><br>
-        <img src=icons/".$donnees["icon"]." width=90 heigh=90>
-        <p><b>Your informations</b> <br>
+        echo "<div class='profil'>
+        <div class='img_p'><p>Hello ". $donnees["username"]." !</p><br>
+        <img src=icons/".$donnees["icon"]." width=180 heigh=180></div>
+        
+        <div class='info_p'><p><h2><b>Tes informations</b></h2><br>
         Email : ".$donnees["email"]."<br>
         Pseudo : ".$donnees["username"]."<br>
         Mot de passe : ******* <br>
-        Date de création : ".$donnees["date_sign"]."<br>
+        Date de création : ".$donnees["date_sign"]."<br><br>
         
-        <a href='logout.php'>Déconnexion</a>";
+        <a href='logout.php'>Déconnexion</a></div></div>";
 
     }
 
 $req->closeCursor();
     
 }else{
-    echo "Tu n'est pas connecté ! <a href='sign_in.php'>Retour</a>";
+    header('Location: sign_in.php');
 }
 
 ?>

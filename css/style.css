@@ -1,0 +1,52 @@
+body{
+    font-family: calibri;
+}
+
+/*forms*/
+.connect, .form_connect, .send, .img_p{
+    display: flex;
+    flex-direction: column;
+}
+.connect, .img_p{
+    align-items: center;
+}
+.form_connect{
+    padding: 20px;
+    width: 320px;
+}
+.form_connect h2, .info_p h2{
+    text-align: center;
+}
+.form_connect input{
+    margin-bottom: 10px;
+}
+.send input, .info_p h2{
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+}
+.send input{
+    border: 1px solid #000;
+    padding: 5px;
+    cursor: pointer;
+}
+.connect a, .profil a{
+    color: #000;
+}
+.required{
+    color: red;
+}
+/*profil*/
+.profil{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
+}
+.img_p{
+    margin-right: 50px;
+    text-transform: capitalize;
+}
+.info_p{
+    margin-left: 50px;
+}

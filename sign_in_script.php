@@ -7,7 +7,7 @@ if(isset($_POST["valid_in"])){
     $name =  stripslashes(htmlentities($_POST["name"]));
     $mdp =  md5($_POST["mdp"]);
     
-    $rep = $bdd->prepare("SELECT id FROM users WHERE password = :password AND (username = :name OR email = :name)");
+    $rep = $bdd->prepare("SELECT IdUser FROM Utilisateur WHERE password = :password AND (username = :name OR email = :name)");
     
     $rep->bindParam(":name", $name, PDO::PARAM_STR);
     $rep->bindParam(":password", $mdp, PDO::PARAM_STR);
@@ -17,13 +17,13 @@ if(isset($_POST["valid_in"])){
     
     if($res){
         session_start();
-        $_SESSION["id"] = $res["id"];
+        $_SESSION["IdUser"] = $res["IdUser"];
         $_SESSION["username"] = $res["username"];
         header("Location: profil.php");
-    }else{
-        echo "<p style='color:red'>Une erreur est survenue ! Veuilez recommencez. <br> <a href='sign_in.php'>Retour</a></p>";
-    }
         
+    }else{
+        echo "<p class='required'>Une erreur est survenue ! Veuilez recommencez. <br> <a href='sign_in.php'>Retour</a></p>";
+    }
 }
 
 
