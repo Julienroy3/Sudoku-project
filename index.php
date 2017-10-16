@@ -55,10 +55,10 @@
                 <form class="addvalues">
                     <div id="timend"></div>
                     Ton temps : 
-                    <input type="text" id="input-timend" value="" disabled="" placeholder="">
+                    <input type="text" id="input-timend" value="" readonly="readonly" placeholder="">
                     <div id="level"></div>
                     <label>Le niveau du jeu : </label>
-                    <input type="text" id="input-level" value="" disabled="" placeholder=""><br>
+                    <input type="text" id="input-level" value="" readonly="readonly" placeholder=""><br>
                     <input type="submit" class="btn-validate" value="Rejouer">
                 </form>
             </div>
