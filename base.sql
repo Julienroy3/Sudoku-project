@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  lun. 16 oct. 2017 à 12:25
+-- Généré le :  lun. 16 oct. 2017 à 17:07
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.6
 
@@ -60,7 +60,7 @@ CREATE TABLE `Performances` (
 CREATE TABLE `Utilisateur` (
   `IdUser` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
-  `password` varchar(200) NOT NULL,
+  `password` text NOT NULL,
   `email` varchar(25) NOT NULL,
   `icon` varchar(200) NOT NULL DEFAULT 'default.png',
   `date_sign` date NOT NULL,
@@ -73,7 +73,9 @@ CREATE TABLE `Utilisateur` (
 --
 
 INSERT INTO `Utilisateur` (`IdUser`, `username`, `password`, `email`, `icon`, `date_sign`, `admin`, `IdGrille`) VALUES
-(4, 'za', '959848ca10cc8a60da818ac11523dc63', 'myriszadip@gmail.com', 'default.png', '2017-10-16', 0, NULL);
+(4, 'za', '959848ca10cc8a60da818ac11523dc63', 'myriszadip@gmail.com', 'default.png', '2017-10-16', 0, NULL),
+(5, 'tif', '423c3fba9840072ab5db43ced5d96f83', 'tif@tif.fr', 'default.png', '2017-10-16', 0, NULL),
+(6, 'sq', '4bc92a7aeb9478e6bf3f989025232b22', 'myriszadip@gmail.com', 'default.png', '2017-10-16', 0, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -124,7 +126,7 @@ ALTER TABLE `Performances`
 -- AUTO_INCREMENT pour la table `Utilisateur`
 --
 ALTER TABLE `Utilisateur`
-  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Contraintes pour les tables déchargées
 --
