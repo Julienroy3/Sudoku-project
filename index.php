@@ -9,7 +9,7 @@
 
 		<title>Sudo -ku</title>
 	</head>
-
+  
 	<body>
 	   <div class="wrap">
             <h1>SudokuJS demo with board generation</h1>
