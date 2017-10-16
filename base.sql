@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  lun. 16 oct. 2017 à 11:18
+-- Généré le :  lun. 16 oct. 2017 à 12:14
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.6
 
@@ -60,13 +60,20 @@ CREATE TABLE `Performances` (
 CREATE TABLE `Utilisateur` (
   `IdUser` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL,
+  `password` varchar(200) NOT NULL,
   `email` varchar(25) NOT NULL,
   `icon` varchar(200) NOT NULL DEFAULT 'default.png',
   `date_sign` date NOT NULL,
   `admin` int(11) NOT NULL DEFAULT '0',
   `IdGrille` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `Utilisateur`
+--
+
+INSERT INTO `Utilisateur` (`IdUser`, `username`, `password`, `email`, `icon`, `date_sign`, `admin`, `IdGrille`) VALUES
+(4, 'za', '959848ca10cc8a60da818ac11523dc63', 'myriszadip@gmail.com', 'default.png', '2017-10-16', 0, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -117,7 +124,7 @@ ALTER TABLE `Performances`
 -- AUTO_INCREMENT pour la table `Utilisateur`
 --
 ALTER TABLE `Utilisateur`
-  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Contraintes pour les tables déchargées
 --
