@@ -107,3 +107,12 @@ body {
     transform: none;
     z-index: 1;
 }
+
+/* ADMIN.PHP */
+#solvedtab {
+    display: none;
+}
+
+#btn-easy, #btn-medium, #btn-hard, #btn-vhard {
+    margin: 5px;
+}
