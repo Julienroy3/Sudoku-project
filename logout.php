@@ -5,6 +5,6 @@ session_start();
 $_SESSION = array();
 session_destroy();
 
-header("Location: profil.php");
+header("Location: index.php");
 
 ?>
