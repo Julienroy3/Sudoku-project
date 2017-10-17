@@ -52,8 +52,8 @@
 
         </div>
         <!-- Form to push the values of time and level into the database if user is online -->
-        <div class="modal">
-            <div class="modal-form">
+        <div class="popup">
+            <div class="popup-form">
                 <h2>Félicitations, tu as terminé le sudoku !</h2>
                 <?php if(isset($_SESSION['IdUser'])) { ?>
                 <form action="insertperf.php" method="post" class="addvalues">
@@ -159,24 +159,6 @@
 				mySudokuJS.hideCandidates();
 		});
 		$candidateToggle.trigger("change");
-        
-        
-        // STOCKER LE SUDOKU DANS UNE VARIABLE, FAIRE AVEC JSON
-        var bb = mySudokuJS.getBoard();
-        //console.log(bb);
-           var tabb = [];
-           for(i=0; i < bb.length; i++){
-               var ggg = bb[i].val;
-               //console.log(ggg);
-               if(ggg == null){
-                   ggg = 0;
-               }
-               if(tabb.length < bb.length){
-                   tabb.push(ggg);
-               }
-           }
-           console.log(tabb);
-           console.log(typeof tabb);
            
         
         // Show popup when game is finished
@@ -197,7 +179,7 @@
             $('#input-level').attr("value", document.getElementById("level").innerHTML);
             
             // class form
-            $('.modal').addClass('active');
+            $('.popup').addClass('active');
         }
 	</script>
 	</body>

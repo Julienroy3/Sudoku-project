@@ -4,11 +4,6 @@
       session_start(); 
       include 'header.php';
       include 'menu.php';
-    
-    $req = $bdd->prepare("SELECT * FROM Participe, Utilisateur, Concours WHERE Participe.IdUser = Utilisateur.IdUser AND Participe.IdConcours = Concours.IdConcours AND Classement = '1'");
-    //$req->bindParam(":IdUser", $_SESSION["IdUser"], PDO::PARAM_INT);
-    $req->execute();
-    
 ?>
 <body>
 	<div class="container">
@@ -50,16 +45,14 @@
 	</div>
     
     <!-- Form to push the values of time and level into the database if user is online -->
-        <div class="modal">
-            <div class="modal-form">
+        <div class="popup">
+            <div class="popup-form">
                 <h2>Félicitations, tu as terminé le concours !</h2>
                 <form action="insertcontest.php" method="post" class="addvalues">
                     <div id="timend"></div>
                     Ton temps : 
                     <input type="text" id="input-timend" name="time_end" value="" readonly="readonly" placeholder="">
                     <div id="level"></div>
-                    <label>Ton classement : </label>
-                    <input type="text" id="input-level" name="level" value="" readonly="readonly" placeholder=""><br>
                     <input type="submit" class="btn-validate" name="valid_in" value="Rejouer">
                 </form>
             </div>
@@ -75,8 +68,6 @@
         timer.addEventListener('secondsUpdated', function (e) {
             $('#chrono').html(timer.getTimeValues().toString());
         });
-        
-        <?php echo 'test'; ?>
         
         var board = [
 			 ,5, ,0, ,2,3,8,
@@ -129,14 +120,21 @@
         
         console.log(lastCase);
         
+        var mySudokuJS = $("#sudoku").sudokuJS({
+            board : competitionBoard,
+            boardFinishedFn: function(data){
+                popUp();
+            },
+        });
+        
         
         // Show popup when game is finished
         
         var popUp = function(){
             // Put the finish time in the form 
-            $('#timend').text(document.getElementById("test2").innerHTML);
-            $('#input-timend').attr("placeholder", document.getElementById("test2").innerHTML);
-            $('#input-timend').attr("value", document.getElementById("test2").innerHTML);
+            $('#timend').text(document.getElementById("chrono").innerHTML);
+            $('#input-timend').attr("placeholder", document.getElementById("chrono").innerHTML);
+            $('#input-timend').attr("value", document.getElementById("chrono").innerHTML);
             // Grab the value of the finish time
             //var timesup = document.getElementById("test2").innerHTML;
             //console.log(timesup);
@@ -144,20 +142,13 @@
             
             // Find the level of the actual sudoku and return this into the form
             var data = mySudokuJS.analyzeBoard();
-            $('#level').text(data.level);
-            $('#input-level').attr("value", document.getElementById("level").innerHTML);
+            //$('#level').text(data.level);
+            //$('#input-level').attr("value", document.getElementById("level").innerHTML);
             
             // class form
-            $('.modal').addClass('active');
+            $('.popup').addClass('active');
         }
         
-        
-        var mySudokuJS = $("#sudoku").sudokuJS({
-            board : competitionBoard,
-            boardFinishedFn: function(data){
-                popUp();
-            },
-        });
         
     </script>
     

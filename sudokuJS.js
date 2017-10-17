@@ -354,7 +354,7 @@
 				.each(function(i,v){
 					var $input = $(this);
 					var newVal = board[i].val;
-                console.log(newVal);
+                    console.log(newVal);
 					//if(newVal && parseInt($input.val()) !== newVal) {
 						$input.val(newVal);
                         $input.attr("value", newVal);
