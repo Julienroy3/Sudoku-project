@@ -24,6 +24,7 @@
                     <input type="radio" class="js-generate-board-btn--medium" value="" id="btn-medium" name="level"><label for="btn-medium">Medium</label>
                     <input type="radio" class="js-generate-board-btn--hard" value="" id="btn-hard" name="level"><label for="btn-hard">Hard</label>
                     <input type="radio" class="js-generate-board-btn--very-hard" value="" id="btn-vhard" name="level"><label for="btn-vhard">Very hard</label>
+                    <input type="text" id="solvedtab" value="">
                 </div>
                     <input type="text" id="datepicker">
                 <div>
@@ -31,11 +32,6 @@
                 </div>
                 <input type="submit">
             </form>
-
-
-            <!--the only required html
-            <div id="sudoku" class="sudoku-board">
-            </div>-->
         
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript" src="sudokuJS.js"></script>
@@ -56,19 +52,10 @@
 			$clearBoardBtn = $(".js-clear-board-btn"),
 
 			mySudokuJS = $("#sudoku").sudokuJS({
-                //board: board,
-				//difficulty: "easy"
-				//change state of our candidate showing checkbox on change in sudokuJS
 				candidateShowToggleFn : function(showing){
 					$candidateToggle.prop("checked", showing);
 				}
                 ,boardFinishedFn: function(data){
-                    //var timesup = document.getElementById("test2").innerHTML;
-                    //alert("Vous avez terminé votre sudoku en " + timesup);
-                    //console.log(data);
-                    //console.log(tt);
-                    //$('#timend').text($(timesup));
-                    //popUp();
                 },
 			});
 
@@ -88,68 +75,64 @@
 			mySudokuJS.generateBoard("very hard");
             gBoard();
 		});
-        
-        
-        
            
-           
+           // This function allows to choose which level we want for the competition and returns 2 arrays : empty sudoku and solved sudoku
            var gBoard = function(){
-               // STOCKER LE SUDOKU DANS UNE VARIABLE, FAIRE AVEC JSON
-        var bb = mySudokuJS.getBoard();
-        //console.log(bb);
-        var tabb = [];
-           for(i=0; i < bb.length; i++){
-               var ggg = bb[i].val;
-               //console.log(ggg);
-               if(ggg == null){
-                   ggg = 0;
+                var board = mySudokuJS.getBoard();
+                //console.log(bb);
+               var emptySdk = [];
+               var solvedSdk = [];
+               //console.log(bb);
+               for(i=0; i < board.length; i++){
+                   var ggg = board[i].val;
+                   //console.log(ggg);
+                   if(ggg == null){
+                       ggg = 0;
+                   }
+                   if(emptySdk.length < board.length){
+                       emptySdk.push(ggg);
+                   }
+
+                   if(emptySdk.length >= board.length) {
+                       mySudokuJS.solveAll(board);
+                   }
                }
-               if(tabb.length < bb.length){
-                   tabb.push(ggg);
+               if(emptySdk.length = 81){
+               //var solvedTabs = mySudokuJS.solveAll();
+                   for(j=0; j < board.length; j++){
+                   var testTab = board[j].val;
+                       if(solvedSdk.length < board.length){
+                           solvedSdk.push(testTab);
+                       }
+                   }
                }
-           }
-           console.log(tabb);
-           console.log(typeof tabb);
-               var easy = function() {
-                   $('#btn-easy').attr("value", tabb);
-               }
-               document.getElementById("btn-easy").click( function () {
-                  $("#btn-easy").attr("value", tabb);
+           //console.log('voilà le tableau ' + emptySdk);
+           //console.log(typeof emptySdk);
+           //console.log('voici le tableau résolu ' + solvedSdk);
+           //console.log(typeof solvedSdk);
+                  // console.log(solvedTab);
+               
+               $("#btn-easy").on('change', function () {
+                  $(this).attr("value", emptySdk);
+                  $('#solvedtab').attr("value", solvedSdk);
+               });
+               $("#btn-medium").on('change', function () {
+                  $(this).attr("value", emptySdk);
+                  $('#solvedtab').attr("value", solvedSdk);
+               });
+               $("#btn-hard").on('change', function () {
+                  $(this).attr("value", emptySdk);
+                  $('#solvedtab').attr("value", solvedSdk);
+               });
+               $("#btn-vhard").on('change', function () {
+                  $(this).attr("value", emptySdk);
+                  $('#solvedtab').attr("value", solvedSdk);
                });
                
                
            }
-           
-           
-           //var board = [];
-           //for(k=0 ; k < tabb.length; k++){
-               //var fff = tabb[k].val;
-               //console.log('fff = ' + fff);
-              // if(board.length < tabb.length){
-                //   board.push(fff);
-              // }
-           //}
-           //console.log('test' + board);
-           
-           //mySudokuJS.setBoard(tabb);
-           //console.log(mySudokuJS.setBoard(tabb));
-          // var zeroboard = mySudokuJS.setBoard(tabb);
-           //for(k=0 ; k < zeroboard.length; k++){
-             //  var fff = zeroboard[k].val;
-              // console.log('fff = ' + fff);
-               
-          // }
-           
-           
-           //var pp = mySudokuJS.getBoard(tabb);
-          // console.log(pp);
-           //for(k=0; k < pp.length; k++){
-             //  var ff = pp[k].val;
-               //console.log(ff);
-           //}
-           
-           //var board = mySudokuJS.getBoard(tabb);
         
-	</script>
+           var popUp = function(){};
+	   </script>
 	</body>
 </html>
