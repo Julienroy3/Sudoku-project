@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  mar. 17 oct. 2017 à 11:43
+-- Généré le :  mar. 17 oct. 2017 à 11:47
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.6
 
@@ -51,7 +51,7 @@ CREATE TABLE `Participe` (
 CREATE TABLE `Performances` (
   `IdGrille` int(11) NOT NULL,
   `DateResolu` date NOT NULL,
-  `TempsResolu` time NOT NULL,
+  `TempsResolu` varchar(15) NOT NULL,
   `Niveau` varchar(25) NOT NULL,
   `IdUser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
