@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+.center {
+    text-align: center;
+}
+
 /* CSS SUDOKU RESPONSIVE SUDOKUJS*/
 
 .wrap {
@@ -115,4 +119,21 @@ body {
 
 #btn-easy, #btn-medium, #btn-hard, #btn-vhard {
     margin: 5px;
+}
+
+/* CONTEST.PHP */
+.btn_contest {
+    background-color: #000;
+    padding: 20px 50px;
+    color: #fff;
+}
+
+.winner-array {
+    margin-top: 50px;
+}
+
+.winner-tab {
+    background-color: #000;
+    color: #fff;
+    text-transform: uppercase;
 }
