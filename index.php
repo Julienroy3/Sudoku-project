@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-		<link rel="stylesheet" media="all" type="text/css" href="sudokuJS.css">
-		<link rel="stylesheet" media="all" type="text/css" href="fonts/stylesheet.css">
-        <link rel="stylesheet" media="all" type="text/css" href="styles.css">
-
-		<title>Sudo -ku</title>
-	</head>
+	
+<?php require "header.php";
+      include("connect.php");
+    session_start(); 
+    ?>
 
 	<body>
-        <?php require "menu.php"; ?>
+        <?php require "menu.php";
+        
+        if (isset($_SESSION['IdUser'])){
+            $req = $bdd->prepare("SELECT * FROM Utilisateur WHERE IdUser = :IdUser");
+            $req->bindParam(":IdUser", $_SESSION["IdUser"], PDO::PARAM_INT);
+            $req->execute();
+            $req->closeCursor();
+        }
+        ?>
         
         <div class="wrap">
             <h1>SudokuJS demo with board generation</h1>
@@ -52,19 +56,20 @@
             <div class="modal-form">
                 <h2>Félicitations, tu as terminé le sudoku !</h2>
                 <?php if(isset($_SESSION['IdUser'])) { ?>
-                <form action="insertpref.php" method="post" class="addvalues">
+                <form action="insertperf.php" method="post" class="addvalues">
                 <?php } ?>
                 <form class="addvalues">
                     <div id="timend"></div>
                     Ton temps : 
-                    <input type="text" id="input-timend" value="" readonly="readonly" placeholder="">
+                    <input type="text" id="input-timend" name="time_end" value="" readonly="readonly" placeholder="">
                     <div id="level"></div>
                     <label>Le niveau du jeu : </label>
-                    <input type="text" id="input-level" value="" readonly="readonly" placeholder=""><br>
-                    <input type="submit" class="btn-validate" value="Rejouer">
+                    <input type="text" id="input-level" name="level" value="" readonly="readonly" placeholder=""><br>
+                    <input type="submit" class="btn-validate" name="valid_in" value="Rejouer">
                 </form>
             </div>
         </div>
+            
         
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript" src="sudokuJS.js"></script>

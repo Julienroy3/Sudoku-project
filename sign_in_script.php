@@ -19,7 +19,7 @@ if(isset($_POST["valid_in"])){
         session_start();
         $_SESSION["IdUser"] = $res["IdUser"];
         $_SESSION["username"] = $res["username"];
-        header("Location: profil.php");
+        header("Location: index.php");
         
     }else{
         echo "<p class='required'>Une erreur est survenue ! Veuilez recommencez. <br> <a href='sign_in.php'>Retour</a></p>";
