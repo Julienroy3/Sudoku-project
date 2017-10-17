@@ -56,16 +56,16 @@
             <div class="modal-form">
                 <h2>Félicitations, tu as terminé le sudoku !</h2>
                 <?php if(isset($_SESSION['IdUser'])) { ?>
-                <form action="insertpref.php" method="post" class="addvalues">
+                <form action="insertperf.php" method="post" class="addvalues">
                 <?php } ?>
                 <form class="addvalues">
                     <div id="timend"></div>
                     Ton temps : 
-                    <input type="text" id="input-timend" value="" readonly="readonly" placeholder="">
+                    <input type="text" id="input-timend" name="time_end" value="" readonly="readonly" placeholder="">
                     <div id="level"></div>
                     <label>Le niveau du jeu : </label>
-                    <input type="text" id="input-level" value="" readonly="readonly" placeholder=""><br>
-                    <input type="submit" class="btn-validate" value="Rejouer">
+                    <input type="text" id="input-level" name="level" value="" readonly="readonly" placeholder=""><br>
+                    <input type="submit" class="btn-validate" name="valid_in" value="Rejouer">
                 </form>
             </div>
         </div>
