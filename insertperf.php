@@ -8,10 +8,11 @@ if(isset($_POST["valid_in"])){
     $level =  $_POST["level"];
     $user = $_SESSION['IdUser'];
     
-    $rep = $bdd->prepare("INSERT INTO Performances(DateResolution, TempsResolu, Niveau) VALUES (CURDATE(), :time, :level)");
+    $rep = $bdd->prepare("INSERT INTO Performances(DateResolu, TempsResolu, Niveau, IdUser) VALUES (CURDATE(), :time, :level, :user)");
     
     $rep->bindParam(":time", $time, PDO::PARAM_STR);
     $rep->bindParam(":level", $level, PDO::PARAM_STR);
+    $rep->bindParam(":user", $user, PDO::PARAM_STR);
     $rep->execute();
     
     $res = $rep->fetch();
