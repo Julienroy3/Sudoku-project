@@ -23,7 +23,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `Concours` (
   `IdConcours` int(11) NOT NULL,
   `GrilleConcours` varchar(200) DEFAULT NULL,
-  `Level` varchar(15) NOT NULL,
   `DateConcours` date DEFAULT NULL,
   `HeureDebut` time DEFAULT NULL,
   `HeureFin` time DEFAULT NULL,
