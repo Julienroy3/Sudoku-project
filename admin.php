@@ -6,7 +6,7 @@
 <body>
 	<div class="wrap">
         <h1>Créer un concours</h1>
-		<form action="" method="post">
+		<form action="contestBoard.php" method="post">
 			Date du concours :<br />
 			<input type="Date" name="dateContest" min="2017-01-01"><br />
 			Heure de début :<br />
