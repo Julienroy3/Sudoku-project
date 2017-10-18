@@ -8,7 +8,8 @@
 <body>
     <?php
     
-    $req2 = $bdd->prepare("SELECT MAX(Concours.IdConcours) as maxConcours FROM Concours");
+    //next concours
+    $req2 = $bdd->prepare("SELECT IdConcours as maxConcours , DateConcours as dat, DATE_FORMAT(HeureDebut, '%Hh%i') as HD, DATE_FORMAT(HeureFin, '%Hh%i') as HF FROM Concours WHERE IdConcours = (SELECT MAX(Concours.IdConcours) FROM Concours) ");
     $req2->execute();
     
     while ($donnees = $req2->fetch()){
@@ -19,9 +20,20 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6 center">
                     <h1>Concours</h1>
-                    <?php if(isset($_SESSION['IdUser'])) { ?>
-                    <a class="btn_contest" href="contest_join.php?idconcours=<?php echo $donnees["maxConcours"];?>">Je participe</a>
-                    <?php } else { ?>
+                    <?php 
+                echo "Prochain Concours : ".$donnees["dat"]."<br><br>
+                    Heure de début : ".$donnees["HD"]."<br>
+                    Heure de fin : ".$donnees["HF"]."<br><br>";
+        if(isset($_SESSION['IdUser'])) {
+            
+            //if date and hour is date's and hour's day
+            if(($donnees["dat"] == date("Y-m-d")) AND ($donnees["HD"] <= date("H:i:s") AND date("H:i:s") <= $donnees["HF"])){
+                        ?>
+                    <br><a class="btn_contest" href="contest_join.php?idconcours=<?php echo $donnees["maxConcours"];?>">Je participe</a><br>
+                    <?php 
+            }else{
+            echo "Il n'y a pas de concours aujourd'hui.";
+        }} else { ?>
                     <a class="btn_contest" href="sign_up.php">Je participe</a>
                 <?php } ?>
 		  </div>
