@@ -4,6 +4,21 @@
       session_start(); 
       include 'header.php';
       include 'menu.php';
+    
+    $current = $_GET["idconcours"];
+   // echo $current;
+    
+    $req = $bdd->prepare("SELECT * FROM Concours WHERE  Concours.IdConcours = :IdConcours");
+    //$req->bindParam(":IdUser", $_SESSION["IdUser"], PDO::PARAM_INT);
+    $req->bindParam(":IdConcours", $current, PDO::PARAM_INT);
+    $req->execute();
+    
+    //while ($donnees = $req->fetch()){
+        //echo $donnees["IdConcours"];
+      //  echo $donnees["Temps"];
+        //$donnees["GrilleConcours"];
+    //}
+    $donnees = $req->fetch();
 ?>
 <body>
 	<div class="container">
@@ -29,15 +44,6 @@
             <div class="col-md-6">
                 <div class="col-xs-6 col-md-6 winner-tab">Date</div>
                 <div class="col-xs-6 col-md-6 winner-tab">Vainqueur</div>
-                
-                <?php
-                    while ($donnees = $req->fetch()){
-                ?>
-                <div class="col-xs-6 col-md-6"><?php echo $donnees["DateConcours"]; ?></div>
-                <div class="col-xs-6 col-md-6"><?php echo $donnees["username"]; ?></div>
-                <?php
-                    }
-                ?>
             </div>
             <div class="col-md-3"></div>
         </div>
@@ -52,8 +58,9 @@
                     <div id="timend"></div>
                     Ton temps : 
                     <input type="text" id="input-timend" name="time_end" value="" readonly="readonly" placeholder="">
+                    <input type="text" id="input-idconcours" name="id_concours" value="<?php echo $current; ?>" readonly="readonly" placeholder="">
                     <div id="level"></div>
-                    <input type="submit" class="btn-validate" name="valid_in" value="Rejouer">
+                    <input type="submit" class="btn-validate" name="valid_in" value="Voir les résultats">
                 </form>
             </div>
         </div>
@@ -69,17 +76,8 @@
             $('#chrono').html(timer.getTimeValues().toString());
         });
         
-        var board = [
-			 ,5, ,0, ,2,3,8,
-			, ,1, , , ,4, , ,5
-			, ,2, , ,5, , , ,
-			,5, ,7,8, , ,2,1,
-			,4,6, ,2,3,7, ,5,8
-			, ,9,8, , ,5,4, ,7
-			, , , , ,6, , ,4,
-			,1, , ,9, , , ,6,
-			, ,7,3,4, , , ,9,0
-		];
+        var board = [<?php echo $donnees["GrilleConcours"]; ?>];
+        
         
         var lastCase = board[board.length - 1];
         console.log(lastCase);
