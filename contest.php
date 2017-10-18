@@ -16,7 +16,11 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 center">
                 <h1>Concours</h1>
+                <?php if(isset($_SESSION['IdUser'])) { ?>
                 <a class="btn_contest" href="contest_join.php">Je participe</a>
+                <?php } else { ?>
+                <a class="btn_contest" href="sign_up.php">Je participe</a>
+                <?php } ?>
 		  </div>
         </div>
         
