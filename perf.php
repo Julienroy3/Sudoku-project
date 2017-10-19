@@ -12,44 +12,32 @@ if (isset($_SESSION['IdUser'])) {
 ?>
 
 
-	<div id="tableauPerf">
-		<table>
-			<caption>Mes Perfs</caption>
-
-			<thead>
-				<tr>
-					<th>Date</th>
-					<th>Temps</th>
-					<th>Niveau</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				
-<?php
-				while ($data = $rep->fetch()) {
-					# code...
-					echo "<tr>";
-					echo "<td>" . $data['DateResolu'] . "</td>";
-					echo "<td>" . $data['TempsResolu'] . "</td>";
-					echo "<td>" . $data['Niveau'] . "</td>";
-					echo "<tr>";
-
-				}
-?>
-
-			</tbody>
-
-			<tfoot>
-				<tr>
-					<th>Date</th>
-					<th>Temps</th>
-					<th>Niveau</th>
-				</tr>
-			</tfoot>
-
-		</table>
-	</div>
+	
+	
+<div class="container">
+    <div class="row winner-array">
+        <div class="col-md-3"></div>
+        <div class="col-sm-12 col-md-6 text-center">
+           <div class="results-array">
+           <h2>Voici tes résultats !</h2>
+            <div class="col-xs-4 col-md-4 winner-tab">Date</div>
+            <div class="col-xs-4 col-md-4 winner-tab">Temps</div>
+            <div class="col-xs-4 col-md-4 winner-tab">Niveau</div>
+            <?php    
+                while($donnees = $rep->fetch()){
+            ?>
+            <div class="col-xs-4 col-md-4"><?php echo $donnees["DateResolu"]; ?></div>
+        <div class="col-xs-4 col-md-4"><?php echo $donnees["TempsResolu"]; ?></div>
+        <div class="col-xs-4 col-md-4"><?php echo $donnees["Niveau"]; ?></div>
+            <?php
+                }
+            ?>
+            </div></div>
+            <div class="col-md-3"></div>
+        </div>
+        </div>	
+	
+	
 
 <?php
 	
@@ -60,3 +48,6 @@ if (isset($_SESSION['IdUser'])) {
 }
 
 ?>
+
+
+ <?php include("footer.php"); ?>
