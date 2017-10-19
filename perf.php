@@ -3,17 +3,15 @@ include("connect.php");
 session_start();
 
 require 'header.php';
-require 'menu.php';
 
 if (isset($_SESSION['IdUser'])) {
 	# code...
-	$rep = $bdd->prepare("SELECT DateResolu, TempsResolu, Niveau FROM Preformances WHERE IdUser = :IdUser");
+	$rep = $bdd->prepare("SELECT DateResolu, TempsResolu, Niveau FROM Performances WHERE IdUser = :IdUser");
 	$rep->bindParam(":IdUser", $_SESSION['IdUser'], PDO::PARAM_INT);
 	$rep->execute();
 ?>
 
 
-?>
 	<div id="tableauPerf">
 		<table>
 			<caption>Mes Perfs</caption>
