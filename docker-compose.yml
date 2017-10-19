@@ -1,5 +1,5 @@
 serveur:
-  build: $PWD
+  build: .
   links:
     - basedd:db
   ports:

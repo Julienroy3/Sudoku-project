@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="fonts/stylesheet.css">
     </head>
-<<<<<<< Updated upstream
+
     
     <?php 
         include("connect.php");
@@ -34,6 +34,4 @@
                     $req->closeCursor();
                 }
                 ?>
-=======
-    
->>>>>>> Stashed changes
+

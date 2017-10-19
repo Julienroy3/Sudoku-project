@@ -2,7 +2,7 @@
     
     <!-- logo sudoku -->
     <a href="index.php">
-        <img src="icons/sudo-ku.jpg" width="140" height="90" alt="logo_sudoku">
+        <img src="./icons/sudo-ku.jpg" width="140" height="90" alt="logo_sudoku">
     </a>
     
     <!-- menu -->
