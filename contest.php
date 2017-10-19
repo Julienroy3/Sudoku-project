@@ -1,7 +1,7 @@
 <?php include("header.php");
 
 //next concours
-$req2 = $bdd->prepare("SELECT IdConcours as maxConcours , DateConcours as dat, DATE_FORMAT(HeureDebut, '%Hh%i') as HD, DATE_FORMAT(HeureFin, '%Hh%i') as HF FROM Concours WHERE IdConcours = (SELECT MAX(Concours.IdConcours) FROM Concours) ");
+$req2 = $bdd->prepare("SELECT IdConcours as maxConcours , DateConcours as dat, DATE_FORMAT(HeureDebut, '%Hh%i') as HD, DATE_FORMAT(HeureFin, '%Hh%i') as HF FROM Concours WHERE DateConcours >= '".date("Y-m-d")."' AND CONCAT(DateConcours,'-',HeureFin) > '".date("Y-m-d-H-i-s")."' ORDER BY dat, HF DESC LIMIT 1 ");
 $req2->execute();
     
 while ($donnees = $req2->fetch()){
