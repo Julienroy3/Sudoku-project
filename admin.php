@@ -1,6 +1,7 @@
 <?php include 'header.php'; ?>
 
-<div class="wrap">
+<div class="container">
+<div class="wrap2">
     <h1>Créer un concours</h1>
     <form action="contestBoard.php" method="post">
         Date du concours :<br />
@@ -19,6 +20,7 @@
         
         <input type="submit" name="submit" value="Go">
     </form>
+</div>
 </div>
 	
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -110,6 +112,6 @@
            var popUp = function(){};
 	   </script>
     
-    
+    <?php include("footer.php"); ?>
 </body>
 </html>
