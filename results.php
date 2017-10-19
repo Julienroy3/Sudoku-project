@@ -19,10 +19,12 @@
     $req->execute();
    
         ?>
-       
-    <div class="row classement-array">
+    <div class="container">
+    <div class="row winner-array">
         <div class="col-md-3"></div>
         <div class="col-sm-12 col-md-6 text-center">
+           <div class="results-array">
+           <h2>Voici le classement du concours !</h2>
             <div class="col-xs-6 col-md-6 winner-tab">Classement</div>
             <div class="col-xs-6 col-md-6 winner-tab">Utilisateur</div>
             <?php    
@@ -33,6 +35,8 @@
             <?php
                 }
             ?>
-            </div>
+            </div></div>
             <div class="col-md-3"></div>
         </div>
+        </div>
+        <?php include("footer.php"); ?>
