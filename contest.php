@@ -6,30 +6,32 @@ $req2->execute();
     
 while ($donnees = $req2->fetch()){
         ?>
-<div class="col-sm-12">
-    <div class="col-md-3"></div>
-    <div class="col-sm-12 col-md-6 text-center">
-        <h1>Concours</h1>
-        <?php 
-            echo "Prochain Concours : ".$donnees["dat"]."<br><br>
-                    Heure de début : ".$donnees["HD"]."<br>
-                    Heure de fin : ".$donnees["HF"]."<br><br>";
-    
-        //connected user can participate
-        if(isset($_SESSION['IdUser'])) {
-            
-            //if date and hour is date's and hour's day
-            if(($donnees["dat"] == date("Y-m-d")) AND ($donnees["HD"] <= date("H:i:s") AND date("H:i:s") <= $donnees["HF"])){
-            ?>
-            <br><a class="btn_contest" href="contest_join.php?idconcours=<?php echo $donnees["maxConcours"];?>">Je participe</a><br>
-        
+<div class="container">
+    <div class="col-sm-12 winner-array">
+        <div class="col-md-3"></div>
+        <div class="col-sm-12 col-md-6 text-center">
+            <h1>Concours</h1>
             <?php 
-            }else{
-                echo "Il n'y a pas de concours aujourd'hui.";
-            }
-        } else { ?>
-                    <a class="btn_contest" href="sign_up.php">Je participe</a>
-        <?php } ?>
+                echo "Prochain Concours : ".$donnees["dat"]."<br><br>
+                        Heure de début : ".$donnees["HD"]."<br>
+                        Heure de fin : ".$donnees["HF"]."<br><br>";
+
+            //connected user can participate
+            if(isset($_SESSION['IdUser'])) {
+
+                //if date and hour is date's and hour's day
+                if(($donnees["dat"] == date("Y-m-d")) AND ($donnees["HD"] <= date("H:i:s") AND date("H:i:s") <= $donnees["HF"])){
+                ?>
+                <br><a class="btn_contest" href="contest_join.php?idconcours=<?php echo $donnees["maxConcours"];?>">Je participe</a><br>
+
+                <?php 
+                }else{
+                    echo "Il n'y a pas de concours aujourd'hui.";
+                }
+            } else { ?>
+                        <a class="btn_contest" href="sign_up.php">Je participe</a>
+            <?php } ?>
+        </div>
     </div>
 </div>
     
