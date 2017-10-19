@@ -36,7 +36,7 @@
         </label>
         <label for="btn-vhard">
             <input type="radio" class="js-generate-board-btn--very-hard" value="" id="btn-vhard" name="level">Very hard
-        </label>
+        </label><br>
         
         <input type="text" id="solvedtab" value=""><br />
         
