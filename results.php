@@ -22,7 +22,7 @@
        
     <div class="row classement-array">
         <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-sm-12 col-md-6 text-center">
             <div class="col-xs-6 col-md-6 winner-tab">Classement</div>
             <div class="col-xs-6 col-md-6 winner-tab">Utilisateur</div>
             <?php    
