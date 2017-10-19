@@ -25,20 +25,18 @@
         </div>
 
         <!-- generate buttons -->
-        <div class="radio">
-            <label for="btn-easy">
-                <input type="radio" class="js-generate-board-btn--easy" value="" id="btn-easy" name="level" checked>Easy
-            </label>
-            <label for="btn-medium">
-                <input type="radio" class="js-generate-board-btn--medium" value="" id="btn-medium" name="level">Medium
-            </label>
-            <label for="btn-hard">
-                <input type="radio"  class="js-generate-board-btn--hard" value="" id="btn-hard" name="level">Hard
-            </label>
-            <label for="btn-vhard">
-                <input type="radio" class="js-generate-board-btn--very-hard" value="" id="btn-vhard" name="level">Very hard
-            </label>
-        </div>
+        <label for="btn-easy">
+            <input type="radio" class="js-generate-board-btn--easy" value="" id="btn-easy" name="level" checked>Easy
+         </label>
+        <label for="btn-medium">
+            <input type="radio" class="js-generate-board-btn--medium" value="" id="btn-medium" name="level">Medium
+        </label>
+        <label for="btn-hard">
+            <input type="radio"  class="js-generate-board-btn--hard" value="" id="btn-hard" name="level">Hard
+        </label>
+        <label for="btn-vhard">
+            <input type="radio" class="js-generate-board-btn--very-hard" value="" id="btn-vhard" name="level">Very hard
+        </label>
         
         <input type="text" id="solvedtab" value=""><br />
         
