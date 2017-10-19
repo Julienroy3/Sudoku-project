@@ -17,20 +17,20 @@ include 'header.php';
       $rep->execute();
       $rep->closeCursor();
 ?>
-<div class="row">
+<div class="col-sm-12">
     <div class="col-md-offset-2 col-md-8">
-      <div class="row">
-        <div class="col-md-4">Date</div>
-        <div class="col-md-4">Heure de début</div>
-        <div class="col-md-4">Heure de fin</div>
+      <div class="winner-array">
+        <div class="col-xs-4 col-md-4 winner-tab">Date</div>
+        <div class="col-xs-4 col-md-4 winner-tab">Heure de début</div>
+        <div class="col-xs-4 col-md-4 winner-tab">Heure de fin</div>
         <?php
         $req = $bdd->prepare("SELECT DateConcours, HeureDebut, HeureFin FROM Concours WHERE DateConcours >= NOW() ORDER BY DateConcours,HeureDebut");
         $req->execute();
             while ($info = $req->fetch()){
         ?>
-        <div class="col-md-4"><?php echo $info["DateConcours"]; ?></div>
-        <div class="col-md-4"><?php echo $info["HeureDebut"]; ?></div>
-        <div class="col-md-4"><?php echo $info["HeureFin"]; ?></div>
+        <div class="col-xs-4 col-md-4"><?php echo $info["DateConcours"]; ?></div>
+        <div class="col-xs-4 col-md-4"><?php echo $info["HeureDebut"]; ?></div>
+        <div class="col-xs-4 col-md-4"><?php echo $info["HeureFin"]; ?></div>
         <?php
             }
         ?>
