@@ -15,6 +15,7 @@ if(isset($_POST["valid_in"])){
     $rep->bindParam(":concours", $concours, PDO::PARAM_STR);
     $rep->execute();
     
+    header('Location: results.php');
     
     $rep->closeCursor();
     
@@ -36,7 +37,11 @@ if(isset($_POST["valid_in"])){
         
         $i++;
         
+        
     }
+        $rep2->closeCursor();
+    
+    
     
 }
 
