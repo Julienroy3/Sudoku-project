@@ -29,15 +29,6 @@
                 
     </div>
 </div>
-        
-<div class="row winner-array">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-        <div class="col-xs-6 col-md-6 winner-tab">Date</div>
-            <div class="col-xs-6 col-md-6 winner-tab">Vainqueur</div>
-        </div>
-<div class="col-md-3"></div>
-</div>
     
 <!-- Form to push the values of time and level into the database if user is online -->
 <div class="popup">
