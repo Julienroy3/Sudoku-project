@@ -1,5 +1,4 @@
 <?php 
-
 include('header.php');
 
 if (isset($_SESSION['IdUser'])){
@@ -8,7 +7,6 @@ if (isset($_SESSION['IdUser'])){
     $req->bindParam(":IdUser", $_SESSION["IdUser"], PDO::PARAM_INT);
     $req->execute();
     
-
     while ($donnees = $req->fetch()){
         
         echo "<div class='col-sm-12 profil'>
@@ -22,15 +20,12 @@ if (isset($_SESSION['IdUser'])){
         Date de création : ".$donnees["date_sign"]."<br><br>
         
         <a href='logout.php'>Déconnexion</a></div></div>";
-
     }
-
 $req->closeCursor();
     
 }else{
     header('Location: sign_in.php');
 }
-
-include('footer.php');
-
+require("script-sdk.js"); 
+    require("footer.php");
 ?>

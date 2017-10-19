@@ -1,10 +1,6 @@
 <?php include 'header.php'; ?>
 
-<?php if(isset($_SESSION['IdUser'])) { ?>
-
-<div class="container">
-<div class="col-md-3"></div>
-<div class="col-md-6">
+<div class="text-center wrap1">
     <h1>Créer un concours</h1>
     <form action="contestBoard.php" method="post">
         Date du concours :<br />
@@ -24,18 +20,6 @@
         <input type="submit" name="submit" value="Go">
     </form>
 </div>
-</div>
-
-<?php
-    } else { ?>
-    <div class="container">
-       <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6 center error" style="margin-top:100px;">Vous n'avez pas accès à cette page. Veuillez vous <a href="sign_up.php">inscrire</a> !</div>
-    </div></div>
-<?php
-}
-?>
 	
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript" src="sudokuJS.js"></script>
@@ -46,11 +30,9 @@
 			$generateBoardBtnMedium = $(".js-generate-board-btn--medium"),
 			$generateBoardBtnHard = $(".js-generate-board-btn--hard"),
 			$generateBoardBtnVeryHard = $(".js-generate-board-btn--very-hard"),
-
 			$solveStepBtn = $(".js-solve-step-btn"),
 			$solveAllBtn = $(".js-solve-all-btn"),
 			$clearBoardBtn = $(".js-clear-board-btn"),
-
 			mySudokuJS = $("#sudoku").sudokuJS({
 				candidateShowToggleFn : function(showing){
 					$candidateToggle.prop("checked", showing);
@@ -58,7 +40,6 @@
                 ,boardFinishedFn: function(data){
                 },
 			});
-
 		$generateBoardBtnEasy.on("click", function(){
 			mySudokuJS.generateBoard("easy");
             gBoard();
@@ -89,7 +70,6 @@
                    if(emptySdk.length < board.length){
                        emptySdk.push(ggg);
                    }
-
                    if(emptySdk.length >= board.length) {
                        mySudokuJS.solveAll(board);
                    }
@@ -127,5 +107,3 @@
 	   </script>
     
     <?php include("footer.php"); ?>
-</body>
-</html>

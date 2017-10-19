@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="fonts/stylesheet.css">
     </head>
-
     
     <?php 
         include("connect.php");
@@ -33,5 +32,6 @@
                     $req->execute();
                     $req->closeCursor();
                 }
+
                 ?>
 

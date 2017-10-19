@@ -6,7 +6,6 @@
     <div id="chronoExample">
         <div class="values" id="test2">00:00:00</div>
         <div>
-            <button class="btn btn-default startButton">Start</button>
             <button class="btn btn-default resetButton">Reset</button>
         </div>
     </div>
@@ -54,5 +53,6 @@
     </div>
 </div>
                 
-<?php require("script-sdk.js"); ?>            
-<?php require("footer.php"); ?>            
+<?php 
+    require("script-sdk.js"); 
+    require("footer.php"); ?> 

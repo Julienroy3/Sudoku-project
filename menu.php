@@ -19,7 +19,7 @@
                 <li><a href="sign_in.php">Connexion</a></li>
                 <?php else: ?>
                 <li><a href="profil.php">Profil</a></li>
-                <li><a href="performance.php">Performances</a></li>
+                <li><a href="perf.php">Performances</a></li>
                 <li><a href="logout.php">Déconnexion</a></li>
                 <?php endif; ?>
             </ul>
@@ -41,7 +41,7 @@
                 </a>
             <ul class="dropdown-menu">
                 <li><a href="profil.php">Profil</a></li>
-                <li><a href="performance.php">Performances</a></li>
+                <li><a href="perf.php">Performances</a></li>
                 <li><a href="logout.php">Déconnexion</a></li>
             </ul>
             </div>

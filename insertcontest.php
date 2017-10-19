@@ -42,7 +42,4 @@ if(isset($_POST["valid_in"])){
         $rep2->closeCursor();
     
 }
-
-
-
 ?>
