@@ -7,13 +7,10 @@
 }
 /*font*/
 /*raccourcis*/
-.center {
-    text-align: center;
-}
 /*all*/
 body {
   color: #000;
-    background-color: #e3e3e3;
+  background-color: #e3e3e3;
 }
 a {
   color: #000;
@@ -24,6 +21,8 @@ a:hover {
 }
 .required {
   color: red;
+}
+.requir {
   display: flex;
   justify-content: center;
   margin-top: 50px;
@@ -50,12 +49,8 @@ h2 {
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #000;
-/*
-  margin: 20px 0 40px 0;
-  padding-bottom: 20px;
-*/
-    padding: 20px 0 40px 0;
-    background-color: #fff;
+  padding: 20px 0 40px 0;
+  background-color: #fff;
 }
 .menu-nav .menu {
   display: flex;
@@ -95,6 +90,7 @@ h2 {
 .dropdown-menu {
   border: 1px solid #000;
   border-radius: 0;
+  min-width: 0;
 }
 .dropdown-menu li {
   text-align: center;
@@ -139,7 +135,7 @@ h2 {
 .sudoku-c .new-one {
   display: flex;
   flex-flow: column wrap;
-    margin: 5px;
+  margin: 5px;
 }
 .sudoku-c .show-candidates input,
 .sudoku-c .new-one input {
@@ -153,11 +149,10 @@ h2 {
     font-size: .8em;
   }
 }
-
-@media (max-width: 700px){
-    .wrap #chronoExample {
-      margin: 0px;
-    }
+@media (max-width: 700px) {
+  .wrap #chronoExample {
+    margin: 0px;
+  }
 }
 /*PARTIE A REVOIR */
 /* ----popup---- */
@@ -165,7 +160,7 @@ h2 {
   background-color: #fff;
   min-height: 30vh;
   margin: 25vh auto;
-  padding: 15px;
+  padding-top: 15px;
   width: 500px;
 }
 .popup-form h2 {
@@ -182,14 +177,10 @@ h2 {
 .addvalues #input-level {
   border: none;
   background: transparent;
-/*
-  width: 75px;
-  margin-top: 3vh;
-*/
 }
 .addvalues .btn-validate {
   border: 1px solid #000;
-  background: #fff;
+  background-color: #fff;
   padding: 10px;
   margin-top: 30px;
 }
@@ -211,17 +202,6 @@ h2 {
   transform: none;
   z-index: 1;
 }
-
-@media(max-width : 500px){
-    .popup-form {
-        width: 50%;
-        
-    }
-    .popup-form h2 {
-        font-size: 1.5rem;
-    }
-}
-
 /*SIGN*/
 .connect {
   display: flex;
@@ -235,7 +215,7 @@ h2 {
 .profil {
   display: flex;
   justify-content: center;
-    margin-top: 165px;
+  margin-top: 165px;
 }
 .profil .info_p a {
   text-decoration: underline;
@@ -254,21 +234,13 @@ h2 {
   color: #fff;
   text-transform: uppercase;
 }
-
 /* RESULTS.PHP */
 .results-array {
-    margin-top: 165px;
+  margin-top: 165px;
 }
-
 .results-array h2 {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
-
-/* ADMIN.PHP */
-.wrap2 {
-  text-align: center;
-}
-
 /*FOOTER*/
 footer {
   background-color: #000;
@@ -315,9 +287,15 @@ footer {
   .sudoku-c .new-one {
     flex-direction: row;
     align-items: center;
+    justify-content: center;
   }
   .sudoku-c .show-candidates span,
   .sudoku-c .new-one span {
     display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  .sudoku-c .show-candidates {
+    font-size: 1rem;
   }
 }

@@ -19,6 +19,4 @@ if(isset($_POST["valid_in"])){
     
     header('Location: index.php');
 }
-
-
 ?>

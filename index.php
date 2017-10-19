@@ -54,5 +54,6 @@
     </div>
 </div>
                 
-<?php require("script-sdk.js"); ?>            
-<?php require("footer.php"); ?>            
+<?php 
+    require("script-sdk.js"); 
+    require("footer.php"); ?> 

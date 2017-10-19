@@ -1,6 +1,7 @@
 <?php
 
-include("header.php");
+include("connect.php");
+session_start(); 
 
 if(isset($_POST["valid_in"])){
     
@@ -22,11 +23,10 @@ if(isset($_POST["valid_in"])){
         header("Location: index.php");
         
     }else{
-        echo "<p class='col-sm-12 required'>Une erreur est survenue ! Veuilez recommencez. </p>";
+        echo "<p class='col-sm-12 requir required'>Une erreur est survenue ! Veuilez recommencez. </p>";
     }
 }
 
 include("footer.php");
-
 
 ?>
