@@ -14,18 +14,18 @@
    ?>
     
     <?php
-    $req = $bdd->prepare("SELECT Participe.Classement, Participe.IdUser, Participe.IdConcours, Utilisateur.IdUser, Utilisateur.username, Concours.IdConcours, Concours.DateConcours FROM Participe, Utilisateur, Concours WHERE Participe.IdUser = Utilisateur.IdUser AND Concours.IdConcours = " . $current ." AND Participe.IdConcours = Concours.IdConcours ORDER BY Classement");
-    $req->execute();
+    $req3 = $bdd->prepare("SELECT Participe.Classement, Participe.IdUser, Participe.IdConcours, Utilisateur.IdUser, Utilisateur.username, Concours.IdConcours, Concours.DateConcours FROM Participe, Utilisateur, Concours WHERE Participe.IdUser = Utilisateur.IdUser AND Concours.IdConcours = " . $current ." AND Participe.IdConcours = Concours.IdConcours ORDER BY Classement");
+    $req3->execute();
    
         ?>
        
-    <div class="row classement-array">
+    <div class="classement-array">
         <div class="col-md-3"></div>
         <div class="col-sm-12 col-md-6 text-center">
             <div class="col-xs-6 col-md-6 winner-tab">Classement</div>
             <div class="col-xs-6 col-md-6 winner-tab">Utilisateur</div>
             <?php    
-                while($donnees = $req->fetch()){
+                while($donnees = $req3->fetch()){
             ?>
             <div class="col-xs-6 col-md-6"><?php echo $donnees['Classement']; ?></div>
             <div class="col-xs-6 col-md-6"><?php echo $donnees['username']; ?></div>
