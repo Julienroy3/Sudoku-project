@@ -1,6 +1,5 @@
 <?php
 
-include('connect.php');
 include('header.php'); 
 
 if(isset($_POST["valid_up"])){
@@ -98,26 +97,51 @@ if(isset($_POST["valid_up"])){
 }
 
 ?>
-        <div class="connect">
+        <div class="col-sm-12 connect">
         
         <form class="form_connect" method="post" enctype="multipart/form-data">
             
-            <h2>Inscription</h2>
+            <h2 class="text-center">Inscription</h2>
             
-            <label for="mail">Email<span class="required">*</span></label><input type="email" name="email" id="mail" required><br>
-            <label for="pseudo">Pseudo<span class="required">*</span></label><input type="text" name="username" id="pseudo" required><br>
-            <label for="mdp">Mot de passe<span class="required">*</span></label><input type="password" name="mdp1" id="mdp" required><br>
-            <label for="confirm">Confimez votre mot de passe<span class="required">*</span></label><input type="password" name="mdp2" id="confirm" required><br>
-            <label for="icon">Icône</label><input type="file" name="icon" id="icon" accept=".png, .jpg, .jpeg, .gif"><br>
+            <div class="form-group">
+                <label for="mail" class="col-sm-12 control-label">Email<span class="required">*</span></label>
+                <div class="col-sm-12">
+                    <input type="email" name="email" id="mail" class="form-control" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="form-group">
+            <label for="pseudo" class="col-sm-12 control-label">Pseudo<span class="required">*</span></label>
+                <div class="col-sm-12">
+                    <input type="text" name="username" id="pseudo" class="form-control" placeholder="Pseudo" required>
+                </div>
+            </div>
+                
+            <div class="form-group">
+            <label for="mdp" class="col-sm-12 control-label">Mot de passe<span class="required">*</span></label>
+                <div class="col-sm-12">
+                    <input type="password" name="mdp1" id="mdp" class="form-control" placeholder="Mot de passe" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+            <label for="confirm" class="col-sm-12 control-label">Confimez votre mot de passe<span class="required">*</span></label>
+                 <div class="col-sm-12">
+                    <input type="password" name="mdp2" id="confirm" class="form-control" placeholder="Confirmer le mot de passe" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="icon" class="col-sm-12 control-label">Icône</label>
+                <div class="col-sm-12">
+                    <input type="file" name="icon" id="icon" accept=".png, .jpg, .jpeg, .gif">
+                </div>
+            </div>
 
-            <div class="send">
-                <input type="submit" name="valid_up" value="S'inscrire">
+            <div class="text-center send">
+                <input type="submit" name="valid_up" class="btn btn-default" value="S'inscrire">
             </div>
         </form>
-            
-            <a href="sign_in.php">Se connecter</a>
-            
+
     </div>
     
-    </body>
-</html>
+<?php include('footer.php'); ?>

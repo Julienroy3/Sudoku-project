@@ -1,7 +1,5 @@
 <?php
-include 'connect.php';
 include 'header.php';
-include 'menu.php';
 
 
     //variables permettant de récupérer les données du concours
@@ -44,5 +42,4 @@ include 'menu.php';
     </div>
 </div>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>

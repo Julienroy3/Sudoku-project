@@ -1,31 +1,25 @@
-<!DOCTYPE html>
-<html>
-<?php include 'header.php';
-      include 'menu.php';
-?>
-<body>
-	<div class="wrap">
-        <h1>Créer un concours</h1>
-		<form action="contestBoard.php" method="post">
-			Date du concours :<br />
-			<input type="Date" name="dateContest" min="2017-01-01"><br />
-			Heure de début :<br />
-			<input type="Time" name="timeStart"><br />
-			Heure de fin :<br />
-			<input type="Time" name="timeEnd"><br />
-			<br />
-			<!-- generate buttons -->
-            <input type="radio" class="js-generate-board-btn--easy" value="" id="btn-easy" name="level"><label for="btn-easy">Easy</label>
-            <input type="radio" class="js-generate-board-btn--medium" value="" id="btn-medium" name="level"><label for="btn-medium">Medium</label>
-            <input type="radio" class="js-generate-board-btn--hard" value="" id="btn-hard" name="level"><label for="btn-hard">Hard</label>
-            <input type="radio" class="js-generate-board-btn--very-hard" value="" id="btn-vhard" name="level"><label for="btn-vhard">Very hard</label>
-            <input type="text" id="solvedtab" value="">
-            <br />
+<?php include 'header.php'; ?>
 
-			<input type="submit" name="submit" value="Go">
-
-		</form>
-	</div>
+<div class="wrap">
+    <h1>Créer un concours</h1>
+    <form action="contestBoard.php" method="post">
+        Date du concours :<br />
+        <input type="Date" name="dateContest" min="2017-01-01"><br />
+        Heure de début :<br />
+        <input type="Time" name="timeStart"><br />
+        Heure de fin :<br />
+        <input type="Time" name="timeEnd"><br />
+        <br />
+        <!-- generate buttons -->
+        <input type="radio" class="js-generate-board-btn--easy" value="" id="btn-easy" name="level"><label for="btn-easy">Easy</label>
+        <input type="radio" class="js-generate-board-btn--medium" value="" id="btn-medium" name="level"><label for="btn-medium">Medium</label>
+        <input type="radio" class="js-generate-board-btn--hard" value="" id="btn-hard" name="level"><label for="btn-hard">Hard</label>
+        <input type="radio" class="js-generate-board-btn--very-hard" value="" id="btn-vhard" name="level"><label for="btn-vhard">Very hard</label>
+        <input type="text" id="solvedtab" value=""><br />
+        
+        <input type="submit" name="submit" value="Go">
+    </form>
+</div>
 	
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript" src="sudokuJS.js"></script>

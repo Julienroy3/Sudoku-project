@@ -1,21 +1,30 @@
 <?php include('header.php'); ?>
 
-    <div class="connect">
+    <div class="col-sm-12 connect">
     
         <form class="form_connect" action="sign_in_script.php" method="post">
             
-            <h2>Connexion</h2>
+            <h2 class="text-center">Connexion</h2>
             
-            <label for="pseudo">Pseudo ou email</label><input type="text" name="name" id="pseudo" required><br>
-            <label for="mdp">Mot de passe</label><input type="password" name="mdp" id="mdp" required><br>
+            <div class="form-group">
+                <label for="pseudo" class="col-sm-12 control-label">Pseudo ou email</label>
+                <div class="col-sm-12">
+                    <input type="text" name="name" id="pseudo" class="form-control" placeholder="Pseudo ou email" required>
+                </div>
+            </div>
             
-            <div class="send">
-                <input type="submit" name="valid_in" value="Se connecter"><br>
+            <div class="form-group">
+            <label for="mdp" class="col-sm-12 control-label">Mot de passe</label>
+                <div class="col-sm-12">
+                    <input type="password" name="mdp" id="mdp" class="form-control" placeholder="Mot de passe" required>
+                </div>
+            </div>
+            
+            <div class="text-center send">
+                <input type="submit" name="valid_in" class="btn btn-default" value="Se connecter"><br>
             </div>
         </form>
         
-        <a href="sign_up.php">S'inscrire</a>
-        
     </div>
-    </body>
-</html>
+
+<?php include('footer.php'); ?>

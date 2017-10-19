@@ -1,9 +1,6 @@
 
 <?php 
-    include("connect.php");
-      session_start(); 
       include 'header.php';
-      include 'menu.php';
 ?>
 <body>
    
@@ -22,8 +19,7 @@
     $req->execute();
    
         ?>
-    
-    <div class="container">        
+       
     <div class="row classement-array">
         <div class="col-md-3"></div>
         <div class="col-md-6">
@@ -40,5 +36,3 @@
             </div>
             <div class="col-md-3"></div>
         </div>
-    </div>
-</body>

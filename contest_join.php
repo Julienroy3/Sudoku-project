@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<?php include("connect.php");
-      session_start(); 
-      include 'header.php';
-      include 'menu.php';
+<?php include("header.php");
     
     $current = $_GET["idconcours"];
    // echo $current;
@@ -20,29 +15,32 @@
     //}
     $donnees = $req->fetch();
 ?>
-<body>
-	<div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 center">
-                <h1>Concours</h1>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 center">
+        <h1>Concours</h1>
                 
-                <!-- Chronometre -->
-                <div id="chrono">
-                    <div class="values" id="test2">00:00:00</div>
-                </div>
-                
-                <div id="sudoku" class="sudoku-board">
-		        </div>
-                
-                
-		  </div>
+        <!-- Chronometre -->
+        <div id="chrono">
+            <div class="values" id="test2">00:00:00</div>
         </div>
+                
+        <div id="sudoku" class="sudoku-board"></div>
+                
+    </div>
+</div>
         
-	</div>
+<div class="row winner-array">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="col-xs-6 col-md-6 winner-tab">Date</div>
+            <div class="col-xs-6 col-md-6 winner-tab">Vainqueur</div>
+        </div>
+<div class="col-md-3"></div>
+</div>
     
-    <!-- Form to push the values of time and level into the database if user is online -->
-        <div class="popup">
+<!-- Form to push the values of time and level into the database if user is online -->
+<div class="popup">
             <div class="popup-form">
                 <h2>Félicitations, tu as terminé le concours !</h2>
                 <form action="insertcontest.php" method="post" class="addvalues">

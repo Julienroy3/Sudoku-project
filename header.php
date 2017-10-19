@@ -1,13 +1,34 @@
-<!DOCTYPE>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>Sudo -ku</title>
-        <link rel="stylesheet" media="all" type="text/css" href="bootstrap.min.css">
-        <link rel="stylesheet" media="all" type="text/css" href="sudokuJS.css">
-		<link rel="stylesheet" media="all" type="text/css" href="fonts/stylesheet.css">
-        <link rel="stylesheet" media="all" type="text/css" href="styles.css">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/sudokuJS.css">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
+    
+    <?php 
+        include("connect.php");
+        session_start(); 
+    ?>
+    
     <body>
+        
+        <div class="container-fluid">
+            <div class="row">
+    			<!-- menu -->
+                <?php require("menu.php"); 
+                
+                //sudoku
+                if (isset($_SESSION['IdUser'])){
+                    $req = $bdd->prepare("SELECT * FROM Utilisateur WHERE IdUser = :IdUser");
+                    $req->bindParam(":IdUser", $_SESSION["IdUser"], PDO::PARAM_INT);
+                    $req->execute();
+                    $req->closeCursor();
+                }
+                ?>

@@ -1,7 +1,5 @@
 <?php 
 
-include("connect.php");
-session_start(); 
 include('header.php');
 
 if (isset($_SESSION['IdUser'])){
@@ -13,11 +11,11 @@ if (isset($_SESSION['IdUser'])){
 
     while ($donnees = $req->fetch()){
         
-        echo "<div class='profil'>
-        <div class='img_p'><p>Hello ". $donnees["username"]." !</p><br>
+        echo "<div class='col-sm-12 profil'>
+        <div class='img_p'><p class='text-center text-capitalize'>Hello ". $donnees["username"]." !</p><br>
         <img src=icons/".$donnees["icon"]." width=180 heigh=180></div>
         
-        <div class='info_p'><p><h2><b>Tes informations</b></h2><br>
+        <div class='info_p'><h2><b>Tes informations</b></h2><br>
         Email : ".$donnees["email"]."<br>
         Pseudo : ".$donnees["username"]."<br>
         Mot de passe : ******* <br>
@@ -32,5 +30,7 @@ $req->closeCursor();
 }else{
     header('Location: sign_in.php');
 }
+
+include('footer.php');
 
 ?>
