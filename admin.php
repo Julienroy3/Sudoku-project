@@ -1,7 +1,10 @@
 <?php include 'header.php'; ?>
 
+<?php if(isset($_SESSION['IdUser'])) { ?>
+
 <div class="container">
-<div class="wrap2">
+<div class="col-md-3"></div>
+<div class="col-md-6">
     <h1>Créer un concours</h1>
     <form action="contestBoard.php" method="post">
         Date du concours :<br />
@@ -22,6 +25,17 @@
     </form>
 </div>
 </div>
+
+<?php
+    } else { ?>
+    <div class="container">
+       <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 center error" style="margin-top:100px;">Vous n'avez pas accès à cette page. Veuillez vous <a href="sign_up.php">inscrire</a> !</div>
+    </div></div>
+<?php
+}
+?>
 	
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript" src="sudokuJS.js"></script>
