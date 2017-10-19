@@ -41,7 +41,7 @@
                 </a>
             <ul class="dropdown-menu">
                 <li><a href="profil.php">Profil</a></li>
-                <li><a href="perf">Performances</a></li>
+                <li><a href="perf.php">Performances</a></li>
                 <li><a href="logout.php">Déconnexion</a></li>
             </ul>
             </div>
