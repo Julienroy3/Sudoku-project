@@ -22,6 +22,7 @@
     <div class="classement-array">
         <div class="col-md-3"></div>
         <div class="col-sm-12 col-md-6 text-center">
+            <h1 class="text-center">Classement</h1>
             <div class="col-xs-6 col-md-6 winner-tab">Classement</div>
             <div class="col-xs-6 col-md-6 winner-tab">Utilisateur</div>
             <?php    
@@ -35,3 +36,7 @@
             </div>
             <div class="col-md-3"></div>
 </div>
+    
+<?php 
+    require("footer.php");
+?>

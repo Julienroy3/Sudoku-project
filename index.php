@@ -5,9 +5,11 @@
     <!-- Chronometre -->
     <div id="chronoExample">
         <div class="values" id="test2">00:00:00</div>
+<!--
         <div>
             <button class="btn btn-default resetButton">Reset</button>
         </div>
+-->
     </div>
                     
     <div class="col-sm-12 sudoku-c">

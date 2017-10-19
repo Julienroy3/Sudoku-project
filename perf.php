@@ -1,10 +1,9 @@
 <?php
-include("connect.php");
 
 require 'header.php';
 
 if (isset($_SESSION['IdUser'])) {
-	# code...
+
 	$rep = $bdd->prepare("SELECT DateResolu, TempsResolu, Niveau FROM Performances WHERE IdUser = :IdUser");
 	$rep->bindParam(":IdUser", $_SESSION['IdUser'], PDO::PARAM_INT);
 	$rep->execute();
@@ -40,13 +39,11 @@ if (isset($_SESSION['IdUser'])) {
 
 <?php
 	
-} else {
-	# code...
-	var_dump($_SESSION['IdUser']);
-	die();
 }
 
 ?>
 
 
- <?php include("footer.php"); ?>
+ <?php 
+require("script-sdk.js"); 
+include("footer.php"); ?>

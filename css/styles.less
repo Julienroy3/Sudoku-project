@@ -6,8 +6,6 @@
     box-sizing: border-box;
 }
 
-/*font*/
-
 /*raccourcis*/
 @black: #000;
 @white: #fff;
@@ -62,7 +60,6 @@ h2{
     border-bottom: @border-black;
     padding: @20 0 @20+@20 0;
     background-color: #fff;
-//    padding-bottom: @20;
     .menu{
         display: flex;
         justify-content: space-between;
@@ -107,7 +104,7 @@ h2{
 }
 
 /*HOME*/
-.btn-default, .show-candidates label{
+.btn-default, .show-candidates label, .create a{
     margin-top: @20;
     border: @border-black;
     background-color: @black;
@@ -116,14 +113,16 @@ h2{
     cursor: pointer;
     border-radius: 0;
 }
-
+.create{
+    margin-top: @20;
+}
 .wrap{
     display: flex;
     flex-flow: column wrap;
     justify-content: @center;
     text-align: @center;
     #chronoExample{
-        margin: 50px 0;
+        margin-top: 50px;
         #test2{
             font-size: 2rem;
         }
@@ -166,12 +165,12 @@ h2{
     background-color: @white;
     min-height: 30vh;
     margin: 25vh auto;
-    padding-top: 15px;
-//    padding-bottom: 15px;
+    padding: 15px;
     width: 500px;
     h2{
         text-align: @center;
         margin-top: 50px;
+        margin-bottom: @20+@20;
     }
 }
             
@@ -183,8 +182,6 @@ h2{
     #input-timend, #input-level{
         border: @none;
         background: transparent;
-//        width: 75px;
-//        margin-top: 3vh;
     }
     .btn-validate{
         border: @border-black;
@@ -216,7 +213,15 @@ h2{
 .connect{
     display: flex;
     justify-content: @center;
+    margin-top: 30px;
     h2,input{
+        margin-bottom: @20;
+    }
+}
+.wrap1{
+    display: flex;
+    justify-content: @center;
+    input{
         margin-bottom: @20;
     }
 }

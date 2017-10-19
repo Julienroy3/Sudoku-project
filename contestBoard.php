@@ -6,7 +6,7 @@ include 'header.php';
     $debut = date('H:i:s', strtotime($_POST["timeStart"]));
     $fin =  date('H:i:s', strtotime($_POST["timeEnd"]));
     $boardUn =  $_POST["level"];
-//    $boardSolved =  $_POST["solvedtab"];
+    $boardSolved =  $_POST["solvedtab"];
     //requête SQL
     $rep = $bdd->prepare("INSERT INTO Concours(GrilleConcours, DateConcours, HeureDebut, HeureFin,GrilleSolution) VALUES (:empty,:day,:start,:finish,:answer)");
       $rep->bindParam(":empty", $boardUn, PDO::PARAM_STR);
