@@ -13,7 +13,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `sudoku`
 --
-
+CREATE DATABASE IF NOT EXISTS sudoku;
+USE sudoku;
 -- --------------------------------------------------------
 
 --

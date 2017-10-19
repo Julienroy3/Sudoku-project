@@ -1,0 +1,33 @@
+serveur:
+  build: $PWD
+  links:
+    - basedd:db
+  ports:
+    - 8180:80
+  volumes:
+    - $PWD:/var/www/html
+  environment:
+    DB_ENV_MYSQL_USER: root
+    DB_ENV_MYSQL_PASSWORD: docker
+    BUILD_STAGE: docker-compose
+basedd:
+  container_name: mysqldb
+  image: mysql
+  volumes:
+    - $PWD/base.sql:/docker-entrypoint-initdb.d/base.sql
+  environment:
+    MYSQL_ROOT_PASSWORD: docker
+    MYSQL_DATABASE: sudoku
+  ports:
+    - 3306:3306
+  expose:
+    - "3306"
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  links:
+    - basedd:db
+  ports:
+    - 8181:80
+  environment:
+    PMA_USER: root
+    PMA_PASSWORD: docker
