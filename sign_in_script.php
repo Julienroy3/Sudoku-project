@@ -1,6 +1,6 @@
 <?php
 
-include("connect.php");
+include("header.php");
 
 if(isset($_POST["valid_in"])){
     
@@ -22,10 +22,11 @@ if(isset($_POST["valid_in"])){
         header("Location: index.php");
         
     }else{
-        echo "<p class='required'>Une erreur est survenue ! Veuilez recommencez. <br> <a href='sign_in.php'>Retour</a></p>";
+        echo "<p class='col-sm-12 required'>Une erreur est survenue ! Veuilez recommencez. </p>";
     }
 }
 
+include("footer.php");
 
 
 ?>

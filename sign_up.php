@@ -17,12 +17,12 @@ if(isset($_POST["valid_up"])){
     $pseudo = $ex->fetch();
 
     if($pseudo["pseudo"] == 1){
-        echo "<p class='required'>Ce pseudo existe déjà ! Veuillez en choisir un autre.</p>";
+        echo "<p class='col-sm-12 required'>Ce pseudo existe déjà ! Veuillez en choisir un autre.</p>";
     }else{
     
         //invalid password
         if($mdp1 != $mdp2){  
-            echo "<p class='required'>Les mots de passes sont différents !</p>";
+            echo "<p class='col-sm-12 required'>Les mots de passes sont différents !</p>";
         }
         //invalid email
         elseif(!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $email)){
@@ -50,11 +50,11 @@ if(isset($_POST["valid_up"])){
 
                 //version
                 if(!in_array($file_extension, $valid_extension)){
-                    $error = "<p class='required'>Le fichier n'est pas au bon format !</p>";
+                    $error = "<p class='col-sm-12 required'>Le fichier n'est pas au bon format !</p>";
                 }
                 //size
                 if($size > $max_size){
-                    $error = "<p class='required'>Le fichier est trop lourd !</p>";
+                    $error = "<p class='col-sm-12 required'>Le fichier est trop lourd !</p>";
                 }
 
                 //no errors
@@ -63,14 +63,14 @@ if(isset($_POST["valid_up"])){
                     $file = replace_accents($file);
 
                     if(!is_uploaded_file($tmp_file)){
-                        echo "<p class='required'>Le fichier est introuvable !</p>";
+                        echo "<p class='col-sm-12 required'>Le fichier est introuvable !</p>";
                     }
 
                     if(move_uploaded_file($tmp_file, $folder . $file)){
                         $file = $_FILES['icon']['name'];
                         $file = date("Y_m_d_H_i_s")."_".replace_accents($file);
                     }else{
-                        echo "<p class='required'>Une erreur est survenue ! Veuillez recommencez.</p>";
+                        echo "<p class='col-sm-12 required'>Une erreur est survenue ! Veuillez recommencez.</p>";
                     }
                 }else{
                     echo $error;
