@@ -38,7 +38,7 @@ CREATE TABLE `Concours` (
 
 CREATE TABLE `Participe` (
   `Temps` time NOT NULL,
-  `Classement` int(11) NOT NULL,
+  `Classement` int(11) DEFAULT NULL,
   `IdUser` int(11) NOT NULL,
   `IdConcours` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

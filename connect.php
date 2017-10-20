@@ -1,9 +1,7 @@
 <?php
 
 try{
-
-    $bdd = new PDO('mysql:host=tiffanyfnctiffdb.mysql.db;dbname=tiffanyfnctiffdb;charset=utf8', 'tiffanyfnctiffdb', 'Waldorf24');
-
+    $bdd = new PDO('mysql:host=mysqldb;dbname=sudoku;charset=utf8', 'root', 'docker');
 }catch (Exception $e){
     die('Erreur : ' . $e->getMessage());
 }

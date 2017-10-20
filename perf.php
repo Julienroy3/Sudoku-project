@@ -9,9 +9,7 @@ if (isset($_SESSION['IdUser'])) {
 	$rep->execute();
 ?>
 
-
-	
-	
+<!-- display performance -->
 <div class="container">
     <div class="row winner-array">
         <div class="col-md-3"></div>
@@ -21,7 +19,7 @@ if (isset($_SESSION['IdUser'])) {
             <div class="col-xs-4 col-md-4 winner-tab">Date</div>
             <div class="col-xs-4 col-md-4 winner-tab">Temps</div>
             <div class="col-xs-4 col-md-4 winner-tab">Niveau</div>
-            <?php    
+            <?php
                 while($donnees = $rep->fetch()){
             ?>
             <div class="col-xs-4 col-md-4"><?php echo $donnees["DateResolu"]; ?></div>
@@ -33,23 +31,15 @@ if (isset($_SESSION['IdUser'])) {
             </div></div>
             <div class="col-md-3"></div>
         </div>
-        </div>	
-	
-	
+        </div>
 
 <?php
-	
+
 } else {
-	# code...
 	var_dump($_SESSION['IdUser']);
 	die();
 }
 
-?>
+require("script-sdk.js");
 
-
- <?php 
-
-require("script-sdk.js"); 
-
-include("footer.php"); ?>
+require("footer.php"); ?>

@@ -1,125 +1,86 @@
-<?php include 'header.php'; ?>
-
+<?php require 'header.php'; ?>
 <div class="text-center col-sm-12 wrap1">
 
+  <!-- create contests -->
     <form action="contestBoard.php" method="post">
-
         <h1>Créer un concours</h1>
-
         <div class="form-group">
-
-           <label for="dateC" class="col-sm-12 control-label"> Date du concours :</label>
-
+           <label for="dateC" class="col-sm-12 control-label"> Date du concours (aaaa-mm-dd) :</label>
             <div class="col-sm-12">
-
                 <input type="Date" name="dateContest" min="2017-01-01" id="dateC" class="form-control" placeholder="Date du concours" required>
-
             </div>
-
         </div>
 
-        
-
         <div class="form-group">
-
-           <label for="HD" class="col-sm-12 control-label">  Heure de début :</label>
-
+           <label for="HD" class="col-sm-12 control-label">  Heure de début (hh:mm:ss) :</label>
             <div class="col-sm-12">
-
                 <input type="Time" name="timeStart" id="HD" class="form-control" placeholder="Heure de début" required>
-
             </div>
-
         </div>
-
-        
 
         <div class="form-group">
-
-           <label for="HF" class="col-sm-12 control-label"> Heure de fin :</label>
-
+           <label for="HF" class="col-sm-12 control-label"> Heure de fin (hh:mm:ss) :</label>
             <div class="col-sm-12">
-
                 <input  type="Time" name="timeEnd" id="HF" class="form-control" placeholder="Heure de fin" required>
-
             </div>
-
         </div>
-
         <!-- generate buttons -->
-
         <label for="btn-easy">
-
             <input type="radio" class="js-generate-board-btn--easy" value="" id="btn-easy" name="level">Easy
-
          </label>
-
         <label for="btn-medium">
-
             <input type="radio" class="js-generate-board-btn--medium" value="" id="btn-medium" name="level">Medium
-
         </label>
-
         <label for="btn-hard">
-
             <input type="radio"  class="js-generate-board-btn--hard" value="" id="btn-hard" name="level">Hard
-
         </label>
-
         <label for="btn-vhard">
-
             <input type="radio" class="js-generate-board-btn--very-hard" value="" id="btn-vhard" name="level">Very hard
-
         </label><br>
-
-        
 
         <input type="text" id="solvedtab" value=""><br />
 
-        
-
         <input type="submit" name="submit" class="btn btn-default" value="Go">
-
     </form>
-
 </div>
-	
+
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-		<script type="text/javascript" src="sudokuJS.js"></script>
-		<script type="text/javascript" src="easytimer.js"></script>
-	   <script>
-		var	$candidateToggle = $(".js-candidate-toggle"),
-			$generateBoardBtnEasy = $(".js-generate-board-btn--easy"),
-			$generateBoardBtnMedium = $(".js-generate-board-btn--medium"),
-			$generateBoardBtnHard = $(".js-generate-board-btn--hard"),
-			$generateBoardBtnVeryHard = $(".js-generate-board-btn--very-hard"),
-			$solveStepBtn = $(".js-solve-step-btn"),
-			$solveAllBtn = $(".js-solve-all-btn"),
-			$clearBoardBtn = $(".js-clear-board-btn"),
-			mySudokuJS = $("#sudoku").sudokuJS({
-				candidateShowToggleFn : function(showing){
-					$candidateToggle.prop("checked", showing);
-				}
+        <script type="text/javascript" src="js/sudokuJS.js"></script>
+        <script type="text/javascript" src="js/easytimer.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+       <script>
+        var $candidateToggle = $(".js-candidate-toggle"),
+            $generateBoardBtnEasy = $(".js-generate-board-btn--easy"),
+            $generateBoardBtnMedium = $(".js-generate-board-btn--medium"),
+            $generateBoardBtnHard = $(".js-generate-board-btn--hard"),
+            $generateBoardBtnVeryHard = $(".js-generate-board-btn--very-hard"),
+            $solveStepBtn = $(".js-solve-step-btn"),
+            $solveAllBtn = $(".js-solve-all-btn"),
+            $clearBoardBtn = $(".js-clear-board-btn"),
+            mySudokuJS = $("#sudoku").sudokuJS({
+                candidateShowToggleFn : function(showing){
+                    $candidateToggle.prop("checked", showing);
+                }
                 ,boardFinishedFn: function(data){
                 },
-			});
-		$generateBoardBtnEasy.on("click", function(){
-			mySudokuJS.generateBoard("easy");
+            });
+        $generateBoardBtnEasy.on("click", function(){
+            mySudokuJS.generateBoard("easy");
             gBoard();
-		});
-		$generateBoardBtnMedium.on("click", function(){
-			mySudokuJS.generateBoard("medium");
+        });
+        $generateBoardBtnMedium.on("click", function(){
+            mySudokuJS.generateBoard("medium");
             gBoard();
-		});
-		$generateBoardBtnHard.on("click", function(){
-			mySudokuJS.generateBoard("hard");
+        });
+        $generateBoardBtnHard.on("click", function(){
+            mySudokuJS.generateBoard("hard");
             gBoard();
-		});
-		$generateBoardBtnVeryHard.on("click", function(){
-			mySudokuJS.generateBoard("very hard");
+        });
+        $generateBoardBtnVeryHard.on("click", function(){
+            mySudokuJS.generateBoard("very hard");
             gBoard();
-		});
-           
+        });
+
            // This function allows to choose which level we want for the competition and returns 2 arrays : empty sudoku and solved sudoku
            var gBoard = function(){
                 var board = mySudokuJS.getBoard();
@@ -145,7 +106,7 @@
                        }
                    }
                }
-               
+
                $("#btn-easy").on('change', function () {
                   $(this).attr("value", emptySdk);
                   $('#solvedtab').attr("value", solvedSdk);
@@ -162,11 +123,11 @@
                   $(this).attr("value", emptySdk);
                   $('#solvedtab').attr("value", solvedSdk);
                });
-               
-               
+
+
            }
-        
+
            var popUp = function(){};
-	   </script>
-    
-    <?php include("footer.php"); ?>
+       </script>
+
+    <?php require("footer.php"); ?>

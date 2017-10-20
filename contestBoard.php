@@ -1,6 +1,5 @@
 <?php
-include 'header.php';
-
+require'header.php';
     //variables permettant de récupérer les données du concours
     $date = date('Y-m-d', strtotime($_POST["dateContest"]));
     $debut = date('H:i:s', strtotime($_POST["timeStart"]));
@@ -17,6 +16,8 @@ include 'header.php';
       $rep->execute();
       $rep->closeCursor();
 ?>
+
+<!-- recapitulatif des concours -->
 <div class="col-sm-12">
     <div class="col-md-offset-2 col-md-8">
       <div class="winner-array">
@@ -37,5 +38,4 @@ include 'header.php';
       </div>
     </div>
 </div>
-
 <?php include 'footer.php'; ?>

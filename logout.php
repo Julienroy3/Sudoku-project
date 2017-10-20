@@ -1,5 +1,6 @@
-<?php 
+<?php
 
+//disconnect 
 session_start();
 
 $_SESSION = array();

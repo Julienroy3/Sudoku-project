@@ -1,14 +1,14 @@
 <?php
-include('header.php'); 
+require('header.php');
 
 if(isset($_POST["valid_up"])){
-    
+
     //variables
     $username = stripslashes(htmlentities($_POST["username"]));
     $email =  stripslashes(htmlentities($_POST["email"]));
     $mdp1 = md5($_POST["mdp1"]);
     $mdp2 =  md5($_POST["mdp2"]);
-    
+
     //verify is pseudo is already exist
     $ex = $bdd->prepare("SELECT COUNT(*) AS pseudo FROM Utilisateur WHERE username = :pseudo");
     $ex->bindParam(":pseudo", $username, PDO::PARAM_STR);
@@ -17,9 +17,9 @@ if(isset($_POST["valid_up"])){
     if($pseudo["pseudo"] == 1){
         echo "<p class='col-sm-12 requir required'>Ce pseudo existe déjà ! Veuillez en choisir un autre.</p>";
     }else{
-    
+
         //invalid password
-        if($mdp1 != $mdp2){  
+        if($mdp1 != $mdp2){
             echo "<p class='col-sm-12 requir required'>Les mots de passes sont différents !</p>";
         }
         //invalid email
@@ -40,7 +40,7 @@ if(isset($_POST["valid_up"])){
                 $tmp_file = $_FILES['icon']['tmp_name'];
                 $max_size = 10000000;
                 $size = filesize($_FILES['icon']['tmp_name']);
-                $valid_extension = array('.png', '.jpg', '.jpeg', '.gif'); 
+                $valid_extension = array('.png', '.jpg', '.jpeg', '.gif');
                 $file_extension = strtolower(strrchr($_FILES['icon']['name'], '.'));
                 //version
                 if(!in_array($file_extension, $valid_extension)){
@@ -74,21 +74,21 @@ if(isset($_POST["valid_up"])){
             $rep->bindParam(":password", $mdp1, PDO::PARAM_STR);
             $rep->bindParam(":icon", $file, PDO::PARAM_STR);
             $rep->execute();
-            echo "Vous venez de vous inscrire. Clicquez sur <a href='sign_in.php'>Se connecter</a> pour continuer.";
-            
+            echo "Vous venez de vous inscrire. Cliquez sur <a href='sign_in.php'>Se connecter</a> pour continuer.";
+
             $rep->closeCursor();
         }
-        
+
         $ex->closeCursor();
     }
 }
 ?>
         <div class="col-sm-12 connect">
-        
+
         <form class="form_connect" method="post" enctype="multipart/form-data">
-            
+
             <h2 class="text-center">Inscription</h2>
-            
+
             <div class="form-group">
                 <label for="mail" class="col-sm-12 control-label">Email<span class="required">*</span></label>
                 <div class="col-sm-12">
@@ -101,21 +101,21 @@ if(isset($_POST["valid_up"])){
                     <input type="text" name="username" id="pseudo" class="form-control" placeholder="Pseudo" required>
                 </div>
             </div>
-                
+
             <div class="form-group">
             <label for="mdp" class="col-sm-12 control-label">Mot de passe<span class="required">*</span></label>
                 <div class="col-sm-12">
                     <input type="password" name="mdp1" id="mdp" class="form-control" placeholder="Mot de passe" required>
                 </div>
             </div>
-            
+
             <div class="form-group">
             <label for="confirm" class="col-sm-12 control-label">Confimez votre mot de passe<span class="required">*</span></label>
                  <div class="col-sm-12">
                     <input type="password" name="mdp2" id="confirm" class="form-control" placeholder="Confirmer le mot de passe" required>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label for="icon" class="col-sm-12 control-label">Icône</label>
                 <div class="col-sm-12">
@@ -129,7 +129,7 @@ if(isset($_POST["valid_up"])){
         </form>
 
     </div>
-    
-<?php include('footer.php'); 
-include('script-sdk.js'); 
+
+<?php require('footer.php');
+require('script-sdk.js');
 ?>
