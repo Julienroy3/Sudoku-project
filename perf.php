@@ -48,5 +48,8 @@ if (isset($_SESSION['IdUser'])) {
 ?>
 
 
- <?php include("footer.php"); ?>
- <?php include("script-sdk.php"); ?>
+ <?php 
+
+require("script-sdk.js"); 
+
+include("footer.php"); ?>

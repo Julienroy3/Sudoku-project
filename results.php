@@ -1,7 +1,6 @@
 <?php 
       include 'header.php';
 ?>
-<body>
    
    <?php
     $req2 = $bdd->prepare("SELECT MAX(Concours.IdConcours) as maxConcours FROM Concours");
@@ -35,3 +34,6 @@
             </div>
             <div class="col-md-3"></div>
 </div>
+
+
+<?php include("footer.php"); ?>
