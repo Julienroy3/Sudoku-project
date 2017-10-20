@@ -11,6 +11,8 @@
         </div>
 -->
     </div>
+                   
+                   
                     
     <div class="col-sm-12 sudoku-c">
         <!--show candidates toggle-->
