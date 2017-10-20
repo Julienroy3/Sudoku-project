@@ -5,6 +5,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+/*font*/
 /*raccourcis*/
 /*all*/
 body {
@@ -99,8 +100,7 @@ h2 {
 }
 /*HOME*/
 .btn-default,
-.show-candidates label,
-.create a {
+.show-candidates label {
   margin-top: 20px;
   border: 1px solid #000;
   background-color: #000;
@@ -109,9 +109,6 @@ h2 {
   cursor: pointer;
   border-radius: 0;
 }
-.create {
-  margin-top: 20px;
-}
 .wrap {
   display: flex;
   flex-flow: column wrap;
@@ -119,7 +116,7 @@ h2 {
   text-align: center;
 }
 .wrap #chronoExample {
-  margin-top: 50px;
+  margin: 50px 0;
 }
 .wrap #chronoExample #test2 {
   font-size: 2rem;
@@ -163,13 +160,12 @@ h2 {
   background-color: #fff;
   min-height: 30vh;
   margin: 25vh auto;
-  padding: 15px;
+  padding-top: 15px;
   width: 500px;
 }
 .popup-form h2 {
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 40px;
 }
 .addvalues {
   text-align: center;
@@ -210,17 +206,9 @@ h2 {
 .connect {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
 }
 .connect h2,
 .connect input {
-  margin-bottom: 20px;
-}
-.wrap1 {
-  display: flex;
-  justify-content: center;
-}
-.wrap1 input {
   margin-bottom: 20px;
 }
 /*PROFIL*/

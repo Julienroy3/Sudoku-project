@@ -24,9 +24,9 @@ include 'header.php';
         <div class="col-xs-4 col-md-4 winner-tab">Heure de début</div>
         <div class="col-xs-4 col-md-4 winner-tab">Heure de fin</div>
         <?php
-        $req = $bdd->prepare("SELECT DateConcours, HeureDebut, HeureFin FROM Concours WHERE DateConcours >= NOW() ORDER BY DateConcours,HeureDebut");
-        $req->execute();
-            while ($info = $req->fetch()){
+        $req2 = $bdd->prepare("SELECT DateConcours, HeureDebut, HeureFin FROM Concours WHERE DateConcours >= NOW() ORDER BY DateConcours,HeureDebut");
+        $req2->execute();
+            while ($info = $req2->fetch()){
         ?>
         <div class="col-xs-4 col-md-4"><?php echo $info["DateConcours"]; ?></div>
         <div class="col-xs-4 col-md-4"><?php echo $info["HeureDebut"]; ?></div>

@@ -1,11 +1,9 @@
 <?php
 
 try{
-<<<<<<< Updated upstream
-    $bdd = new PDO('mysql:host=localhost;dbname=sudoku;charset=utf8', 'root', 'root');
-=======
-    $bdd = new PDO('mysql:host=localhost:8181;dbname=sudoku;charset=utf8', 'root', 'root');
->>>>>>> Stashed changes
+
+    $bdd = new PDO('mysql:host=tiffanyfnctiffdb.mysql.db;dbname=tiffanyfnctiffdb;charset=utf8', 'tiffanyfnctiffdb', 'Waldorf24');
+
 }catch (Exception $e){
     die('Erreur : ' . $e->getMessage());
 }
