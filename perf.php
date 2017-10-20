@@ -1,5 +1,4 @@
 <?php
-include("connect.php");
 
 require 'header.php';
 
@@ -50,3 +49,4 @@ if (isset($_SESSION['IdUser'])) {
 
 
  <?php include("footer.php"); ?>
+ <?php include("script-sdk.php"); ?>
